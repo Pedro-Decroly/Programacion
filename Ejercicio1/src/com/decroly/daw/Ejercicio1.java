@@ -94,8 +94,24 @@ System.out.println("El área es " + area);
 //8 Escribe un programa que lee dos números y los visualiza en orden ascendente
     
 
-    
-    
+    entrada = new Scanner (System.in);
+	
+	System.out.println("INTRODUCE UN NUMERO:");
+		double numero7 = entrada.nextDouble();
+		
+	System.out.println("INTRODUCE UN NUMERO:");
+		double numero8 = entrada.nextDouble();
+		
+		double menor = Math.min(numero7, numero8);
+        double mayor = Math.max(numero7, numero8);
+        
+		 System.out.println("Los números en orden ascendente son:");
+	        System.out.println(menor);
+	        System.out.println(mayor);
+
+//9. Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales
+
+	        
 	
 	}
 }
