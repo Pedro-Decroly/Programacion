@@ -111,6 +111,16 @@ System.out.println("El área es " + area);
     metros=millas_marinas*1852;
     
     System.out.println("Valor de metros: " + metros);
+   
+// 8. Escribe un programa que lee dos números y los visualiza en orden ascendente.
+
+    
+    
+    
+    
+    
+    
+    
 	
 	}
 
