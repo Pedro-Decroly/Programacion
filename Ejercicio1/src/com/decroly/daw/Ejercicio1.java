@@ -186,6 +186,10 @@ System.out.println("El área es " + area);
 		        System.out.println("INTRODUCE UN NUMERO:");
 				double numero18 = entrada.nextDouble();
 				
+				double valor = Math.signum(numero18);
+				
+				System.out.println("El valor de este numero es:"); //si sale 1 es positivo, pero si es -1 es negrtivo
+				System.out.println(valor);				
 				
 			
 			
