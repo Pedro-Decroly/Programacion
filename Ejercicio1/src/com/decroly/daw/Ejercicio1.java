@@ -139,19 +139,11 @@ System.out.println("El área es " + area);
 			System.out.println("INTRODUCE UN NUMERO:");
 			double numero13 = entrada.nextDouble();
 			
+			double po = Math.max(numero11, (Math.max(numero12, numero13)));
 	        
-			System.out.println("numero11 > numero12 = " + (numero11 > numero12));
-			
-			System.out.println("numero12 > numero11 = " + (numero12 > numero11));
-			
-			System.out.println("numero11 > numero13 = " + (numero11 > numero13));
-			
-			System.out.println("numero12 > numero13 = " + (numero12 > numero13));
-			
-			System.out.println("numero13 > numero12 = " + (numero13 > numero12));
-			
-			System.out.println("numero13 > numero11 = " + (numero11 > numero12));
-	
+	        System.out.println("El numero mayor es");
+	        System.out.println(po);
+	        
 //11. Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta, producto y división. (Ten en cuenta la división por cero).
 	
 			entrada = new Scanner (System.in);
