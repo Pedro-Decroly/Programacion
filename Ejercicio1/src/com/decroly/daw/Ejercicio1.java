@@ -152,7 +152,16 @@ System.out.println("El área es " + area);
 			
 			System.out.println("numero13 > numero11 = " + (numero11 > numero12));
 	
+//11. Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta, producto y división. (Ten en cuenta la división por cero).
 	
-	
+			
+		23543	
+			
+			
+			
+			
+			
+			
+			
 	}
 }
