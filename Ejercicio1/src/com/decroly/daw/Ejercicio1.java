@@ -155,7 +155,12 @@ System.out.println("El área es " + area);
 //11. Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta, producto y división. (Ten en cuenta la división por cero).
 	
 			
-		23543	
+			
+//12. Escribe un programa que lee 2 números y muestra el mayor.
+			
+			
+			
+//13. Escribe un programa que lee un número y me dice si es positivo o negativo consideraremos el cero como positivo.
 			
 			
 			
