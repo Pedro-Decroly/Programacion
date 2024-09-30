@@ -111,7 +111,48 @@ System.out.println("El área es " + area);
 
 //9. Escribe un programa que lee dos números y nos dice cuál es el mayor o si son iguales
 
+	        entrada = new Scanner (System.in);
 	        
+	        System.out.println("INTRODUCE UN NUMERO:");
+			double numero9 = entrada.nextDouble();
+			
+			System.out.println("INTRODUCE UN NUMERO:");
+			double numero10 = entrada.nextDouble();
+	        
+			
+	        
+			System.out.println("numero9==numero10 = " + (numero9 == numero10));
+			System.out.println("numero9>numero10 =" + (numero9>numero10));
+			System.out.println("numero9<numero10 =" + (numero9<numero10));
+
+//10 Escribe un programa que lea tres números distintos y nos diga cuál es el mayor.
+			
+			entrada = new Scanner (System.in);
+			
+	        
+	        System.out.println("INTRODUCE UN NUMERO:");
+			double numero11 = entrada.nextDouble();
+			
+			System.out.println("INTRODUCE UN NUMERO:");
+			double numero12 = entrada.nextDouble();
+	        
+			System.out.println("INTRODUCE UN NUMERO:");
+			double numero13 = entrada.nextDouble();
+			
+	        
+			System.out.println("numero11 > numero12 = " + (numero11 > numero12));
+			
+			System.out.println("numero12 > numero11 = " + (numero12 > numero11));
+			
+			System.out.println("numero11 > numero13 = " + (numero11 > numero13));
+			
+			System.out.println("numero12 > numero13 = " + (numero12 > numero13));
+			
+			System.out.println("numero13 > numero12 = " + (numero13 > numero12));
+			
+			System.out.println("numero13 > numero11 = " + (numero11 > numero12));
+	
+	
 	
 	}
 }
