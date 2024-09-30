@@ -181,12 +181,20 @@ System.out.println("El área es " + area);
 			System.out.println("INTRODUCE UN NUMERO:");
 			double numero17 = entrada.nextDouble();
 			
+			double mayor1 = Math.max(numero16, numero17);
+			
+			System.out.println("El numero mayor es:");
+				System.out.println(mayor1);
 			
 //13. Escribe un programa que lee un número y me dice si es positivo o negativo consideraremos el cero como positivo.
 			
-			
-			
-			
+				entrada = new Scanner (System.in);
+				
+		        
+		        System.out.println("INTRODUCE UN NUMERO:");
+				double numero18 = entrada.nextDouble();
+				
+				
 			
 			
 			
