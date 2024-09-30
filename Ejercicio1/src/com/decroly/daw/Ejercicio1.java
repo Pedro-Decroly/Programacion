@@ -154,10 +154,32 @@ System.out.println("El área es " + area);
 	
 //11. Escribe un programa que lee dos números, calcula y muestra el valor de su suma, resta, producto y división. (Ten en cuenta la división por cero).
 	
+			entrada = new Scanner (System.in);
 			
+			System.out.println("INTRODUCE UN NUMERO:");
+				double numero14 = entrada.nextDouble();
+				
+			System.out.println("INTRODUCE UN NUMERO:");
+				double numero15 = entrada.nextDouble();
+				
+			System.out.println("La Suma es:" + (numero14 + numero15));
+			
+			System.out.println("La Resta es:" + (numero14 - numero15));
+			
+			System.out.println("El Producto es:" + (numero14 * numero15));
+			
+			System.out.println("La Division es:" + (numero14 / numero15));
 			
 //12. Escribe un programa que lee 2 números y muestra el mayor.
 			
+			entrada = new Scanner (System.in);
+			
+	        
+	        System.out.println("INTRODUCE UN NUMERO:");
+			double numero16 = entrada.nextDouble();
+			
+			System.out.println("INTRODUCE UN NUMERO:");
+			double numero17 = entrada.nextDouble();
 			
 			
 //13. Escribe un programa que lee un número y me dice si es positivo o negativo consideraremos el cero como positivo.
