@@ -75,9 +75,23 @@ public class Actividad2 {
 	}
 
 //7 Escribe un programa que lea una calificación numérica entre 0 y 10 y la transforma en calificación alfabética, escribiendo el resultado.
-		
-		
-		
+
+	int nota;
+	SC = new Scanner(System.in);
+	System.out.println("Dame un número entre 0 y 10");	
+	nota = SC.nextInt();
+
+	if (nota <5){
+		System.out.println("Insuficiente");
+	} else if (nota<6) {
+		System.out.println("Suficiente");
+	}else if (nota<7) {
+		System.out.println("bien");
+	}else if (nota<9) {
+		System.out.println("Notable");
+	}else {
+		System.out.println("Sobresaliente");
+	}
 		
 		
 	}
