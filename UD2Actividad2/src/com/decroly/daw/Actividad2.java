@@ -3,12 +3,10 @@ package com.decroly.daw;
 import java.util.Scanner;
 
 public class Actividad2 {
-
-    private static boolean conta3;
-
+	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//TODO Auto-generated method stub
 //1. Escribe un programa que pide la edad por teclado y nos muestra el mensaje de “Eres mayor de edad” solo si lo somos.
 
 		int num;
@@ -58,10 +56,10 @@ public class Actividad2 {
 //5	Realiza un programa que muestre los números desde el 1 hasta un número N que se introducirá por teclado.
 		
 	int cont2;
-	for (cont2 = 0;cont2 <=200;cont2+=1){
-	if (cont2 % 2 == 0){
-	System.out.println(cont2);	
-}
+		for (cont2 = 0;cont2 <=200;cont2+=1){
+			if (cont2 % 2 == 0){
+				System.out.println(cont2);	
+	}
 	}		
 		
 //6 Realiza un programa que muestre los números desde el 1 hasta un número N que se introducirá por teclado
@@ -92,8 +90,49 @@ public class Actividad2 {
 	}else {
 		System.out.println("Sobresaliente");
 	}
-		
-		
+
+	
+//8. Realiza un programa que lea un número positivo N y calcule y visualice su factorial N! Siendo el factorial:
+
+
+/*9. Escribe un programa que recibe como datos de entrada una hora expresada en horas, minutos y segundos que nos 
+calcula y escribe la hora, minutos y segundos que serán, transcurrido un segundo. */
+
+int seg,min,hora;
+
+SC = new Scanner(System.in);
+System.err.println("Introduce las Horas");
+hora = SC.nextInt();
+
+System.err.println("Introduce las Minutos");
+min = SC.nextInt();
+
+System.err.println("Introduce las Segundos");
+seg = SC.nextInt();
+seg ++;
+
+if (seg>=60){
+	min ++;
+	seg = 0;
+
+if (min>=60){
+	hora ++;
+	min = 0;
+}
+}
+
+System.out.println(hora);
+System.out.println(min);
+System.out.println(seg);	
+
+
+
+
+
+
+
+
+
 	}
 
 }
