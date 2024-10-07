@@ -130,19 +130,24 @@ calcula y escribe la hora, minutos y segundos que serán, transcurrido un segund
 	while(contador < 10){
 		System.out.println("Insete numero ");	
 		nota = SC.nextInt();
-		while(num==0);
-		SC = new Scanner(System.in);
+		while(num==0){
+			System.out.println("Insete numero ");	
+			nota = SC.nextInt();	
+		}
 		}
 			if(num<0){ 
 			haynegativos=true;
+			contador ++;
 		}
-		contador ++;
+	
 	
 			if (haynegativos == true) {
-			System.out.println("Hay un negativo ");		
+			System.out.println("Hay un negativo ");
+			nota = SC.nextInt();		
 			}
 			
-		
+//Realiza un programa que lea 10 números no nulos y luego muestre un mensaje indicando cuántos son positivos y cuantos negativos.
+	
 	
 
 
