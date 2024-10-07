@@ -93,6 +93,19 @@ public class Actividad2 {
 
 	
 //8. Realiza un programa que lea un número positivo N y calcule y visualice su factorial N! Siendo el factorial:
+int numero;
+        
+do {
+	System.out.print("Introduce un número positivo: ");
+	numero =  SC.nextInt();
+	
+	if (numero < 0) {
+		System.out.println("El número debe ser positivo");
+	}
+} while (numero < 0);
+
+
+for (int i = 1; i <= numero; i++);
 
 
 /*9. Escribe un programa que recibe como datos de entrada una hora expresada en horas, minutos y segundos que nos 
@@ -111,31 +124,31 @@ calcula y escribe la hora, minutos y segundos que serán, transcurrido un segund
 	seg = SC.nextInt();
 	seg ++;
 
-	if (seg>=60){
-		min ++;
-		seg = 0;
+		if (seg>=60){
+			min ++;
+			seg = 0;
 
-	if (min>=60){
-		hora ++;
-		min = 0;
-	}
-	}
-	System.out.println(hora);
-	System.out.println(min);
-	System.out.println(seg);	
+		if (min>=60 ){
+			hora ++ ;
+			min = 0;
+		}
+		}
+		System.out.println(hora);
+		System.out.println(min);
+		System.out.println(seg);	
 //10. Realiza un programa que lea 10 números no nulos y luego muestre un mensaje de si ha leído algún número negativo o no
 
-	boolean haynegativos = false;
-	int	contador = 0;
-	while(contador < 10){
-		System.out.println("Insete numero ");	
-		nota = SC.nextInt();
-		while(num==0){
-			System.out.println("Insete numero ");	
-			nota = SC.nextInt();	
+		boolean haynegativos = false;
+		int	contador = 0;
+			while(contador < 10){
+				System.out.println("Insete numero ");	
+				nota = SC.nextInt();
+			while(num==0){
+				System.out.println("Insete numero ");	
+				nota = SC.nextInt();	
 		}
 		}
-			if(num<0){ 
+			if(num < 0){ 
 			haynegativos=true;
 			contador ++;
 		}
@@ -143,14 +156,126 @@ calcula y escribe la hora, minutos y segundos que serán, transcurrido un segund
 	
 			if (haynegativos == true) {
 			System.out.println("Hay un negativo ");
-			nota = SC.nextInt();		
+		
 			}
 			
-//Realiza un programa que lea 10 números no nulos y luego muestre un mensaje indicando cuántos son positivos y cuantos negativos.
+//11. Realiza un programa que lea 10 números no nulos y luego muestre un mensaje indicando cuántos son positivos y cuantos negativos.
+
+			boolean haynegativos1 = false;
+			int positivos = 0;
+			int negativos = 0;
+			int	contador1 = 0;
+		while(contador1 < 10){
+			System.out.println("Insete numero ");	
+			nota = SC.nextInt();
+			positivos ++;
+		while(num1==0){
+			System.out.println("Insete numero ");	
+			nota = SC.nextInt();	
+		}
+		}
+			if(num1 < 0){ 
+			haynegativos1=true;
+			negativos ++;
+			
+		}
 	
-	
+		contador1 ++;
+
+			if (haynegativos1 == true) {
+			System.out.println("Hay un negativo ");
+		
+			}
+			System.out.println(positivos);
+			System.out.println (negativos);
+			
+
+//12. Realiza un programa que lea una secuencia de números no nulos hasta que se introduzca un 0, y luego muestre si ha leído algún número negativo, cuantos positivos y cuantos negativos.
+
+		boolean haynegativos2 = false;
+		int positivos1 = 0;
+		int negativos1 = 0;
+		int	contador2 = 0;
+		int numero2 = 0;
+
+		do {
+			System.out.println("Numero");
+			numero2 = SC.nextInt();
+			positivos1 ++;
+
+			if (numero2 <0){
+				haynegativos2 = true;
+				negativos1 ++;
+			}
+			contador2 ++;
+		}while (numero2 != 0);
+
+		if (haynegativos2 == true){
+			System.out.println("hay numeros negativos");
+		}
+			System.out.println(positivos1);
+			System.out.println(negativos1);
+
+//13. Realiza un programa que calcule y escriba la suma y el producto de los 10 primeros números naturales.
+
+		System.out.println("suma de los 10 primeros");
+			int suma = 1+2+3+4+5+6+7+8+9+10;
+				System.out.println(suma);
+
+		System.out.println("el resultado de los 10");
+			int resultado =1+2+3+4+5+6+7+8+9+10;
+				System.out.println(resultado);
+
+//14. Escribe un programa que calcula el salario neto semanal de un trabajador en función del
+// número de horas trabajadas y la tasa de impuestos de acuerdo a las siguientes hipótesis:
+// • Las primeras 35 horas se pagan a tarifa normal.
+// • Las horas que pasen de 35 se pagan a 1,5 veces la tarifa normal.
+// • Las tasas de impuestos son:
+// • Los primeros 500 euros son libres de impuestos.
+// • Los siguientes 400 tienen un 25% de impuestos.
+// • Los restantes un 45% de impuestos.
+// Escribir nombre, salario bruto, tasas y salario neto.
+
+Scanner scanner = new Scanner(System.in);
+String nombre;
+double horasTrabajadas, tarifaNormal;
+
+System.out.print("Introduce el nombre del trabajador: ");
+nombre = scanner.nextLine();
+
+do {
+	System.out.print("Introduce las horas trabajadas: ");
+	horasTrabajadas = scanner.nextDouble();
+} while (horasTrabajadas < 0);
+
+do {
+	System.out.print("Introduce la tarifa normal por hora: ");
+	tarifaNormal = scanner.nextDouble();
+} while (tarifaNormal < 0);
 
 
+double salarioBruto = 0;
+if (horasTrabajadas <= 35) {
+	salarioBruto = horasTrabajadas * tarifaNormal;
+} else {
+	salarioBruto = (35 * tarifaNormal) + ((horasTrabajadas - 35) * tarifaNormal * 1.5);
+}
+
+
+double impuestos = 0;
+if (salarioBruto > 900) {
+	impuestos = (400 * 0.25) + ((salarioBruto - 900) * 0.45);
+} else if (salarioBruto > 500) {
+	impuestos = ((salarioBruto - 500) * 0.25);
+}
+
+
+double salarioNeto = salarioBruto - impuestos;
+
+System.out.println("\nResumen de salario para: " + nombre);
+System.out.println("Salario bruto: " + salarioBruto + " euros");
+System.out.println("Impuestos: " + impuestos + " euros");
+System.out.println("Salario neto: " + salarioNeto + " euros");
 	
 
 
