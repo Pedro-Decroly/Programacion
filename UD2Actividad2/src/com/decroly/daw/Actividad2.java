@@ -98,36 +98,55 @@ public class Actividad2 {
 /*9. Escribe un programa que recibe como datos de entrada una hora expresada en horas, minutos y segundos que nos 
 calcula y escribe la hora, minutos y segundos que serán, transcurrido un segundo. */
 
-int seg,min,hora;
+	int seg,min,hora;
 
-SC = new Scanner(System.in);
-System.err.println("Introduce las Horas");
-hora = SC.nextInt();
+	SC = new Scanner(System.in);
+	System.err.println("Introduce las Horas");
+	hora = SC.nextInt();
 
-System.err.println("Introduce las Minutos");
-min = SC.nextInt();
+	System.err.println("Introduce las Minutos");
+	min = SC.nextInt();
 
-System.err.println("Introduce las Segundos");
-seg = SC.nextInt();
-seg ++;
+	System.err.println("Introduce las Segundos");
+	seg = SC.nextInt();
+	seg ++;
 
-if (seg>=60){
-	min ++;
-	seg = 0;
+	if (seg>=60){
+		min ++;
+		seg = 0;
 
-if (min>=60){
-	hora ++;
-	min = 0;
-}
-}
+	if (min>=60){
+		hora ++;
+		min = 0;
+	}
+	}
+	System.out.println(hora);
+	System.out.println(min);
+	System.out.println(seg);	
+//10. Realiza un programa que lea 10 números no nulos y luego muestre un mensaje de si ha leído algún número negativo o no
 
-System.out.println(hora);
-System.out.println(min);
-System.out.println(seg);	
+	boolean haynegativos = false;
+	int	contador = 0;
+	while(contador < 10){
+		System.out.println("Insete numero ");	
+		nota = SC.nextInt();
+		while(num==0);
+		SC = new Scanner(System.in);
+		}
+			if(num<0){ 
+			haynegativos=true;
+		}
+		contador ++;
+	
+			if (haynegativos == true) {
+			System.out.println("Hay un negativo ");		
+			}
+			
+		
+	
 
 
-
-
+	
 
 
 
