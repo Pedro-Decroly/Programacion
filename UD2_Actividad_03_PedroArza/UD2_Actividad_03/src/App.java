@@ -21,7 +21,6 @@ public class App {
             System.out.println("3º-Multiplicar");
             System.out.println("4º-Dividir");
             System.out.println("5º-Salir");
-            
             opcion = reader.nextLine();
         } while (opcion !="5");
     }
