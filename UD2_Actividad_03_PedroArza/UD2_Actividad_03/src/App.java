@@ -13,6 +13,7 @@ public class App {
 
 
 //2-Realiza un programa que muestre un menú de opciones
+
         String opcion ="";
         Scanner reader = new Scanner (System.in);
         
@@ -29,24 +30,24 @@ public class App {
             {
                 case "1":
                     reader = new Scanner(System.in);
-                    System.out.println("INTRODUCE UN NUMERO:");
-				double numero1 = reader.nextDouble();
+                        System.out.println("INTRODUCE UN NUMERO:");
+                            double numero1 = reader.nextDouble();
 				
 			        System.out.println("INTRODUCE UN NUMERO:");
-				double numero2 = reader.nextDouble();
-                System.out.println("La Suma es:" + (numero1 + numero2));
+                        double numero2 = reader.nextDouble();
+                            System.out.println("La Suma es:" + (numero1 + numero2));
                     
                 break;
                 
                 case "2":
                     reader = new Scanner(System.in);
-                    System.out.println("INTRODUCE UN NUMERO:");
-				double numero3 = reader.nextDouble();
+                        System.out.println("INTRODUCE UN NUMERO:");
+				            double numero3 = reader.nextDouble();
 				
 			        System.out.println("INTRODUCE UN NUMERO:");
                         double numero4 = reader.nextDouble();
                             System.out.println("La Resta es:" + (numero3 - numero4));
-                        break;
+                break;
                 
                 case "3":
                     reader = new Scanner(System.in);
@@ -66,7 +67,7 @@ public class App {
 			        System.out.println("INTRODUCE UN NUMERO:");
                         double numero8 = reader.nextDouble();
                             System.out.println("El Producto es:" + (numero7 / numero8));
-                     break;
+                break;
 
             default:
                 System.out.println("Introduzca una opcion correcta del menu");
@@ -74,9 +75,6 @@ public class App {
 
             }
         }while(!opcion.equals("5"));
-
-
-        
 
     }
 }
