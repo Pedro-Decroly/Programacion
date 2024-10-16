@@ -22,28 +22,14 @@ public class App {
 //Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre la suma de todos los valores
 
         in = new Scanner(System.in);
-        int[] vector1 = new int [10];
-        int suma=0;
+            int[] vector1 = new int [10];
+                int suma=0,j;
+                    
 
-        System.out.println("Introduce deiz numeros");
-        for ( i = 0 ; i < vector1.length ; i++)
-        vector1 [i] = in.nextInt();
-
-        System.out.println("la suma es"+suma);
-        suma +=vector1[i];
-        System.out.println(suma);
 
 //Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego lo recorra para averiguar el máximo y mínimo y mostrarlos por pantalla.
 
-    in = new Scanner(System.in);
-        int[] vector2 = new int [10];
-        
-
-        System.out.println("Introduce deiz numeros");
-            for ( i = 0 ; i < vector2.length ; i++)
-            vector2 [i] = in.nextInt();
-        
-        for ( i = 0 ; i < vector2.length ; i++)
+    
             
     }
 }
