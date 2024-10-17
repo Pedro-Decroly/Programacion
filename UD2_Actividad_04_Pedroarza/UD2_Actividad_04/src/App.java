@@ -23,13 +23,32 @@ public class App {
 
         in = new Scanner(System.in);
             int[] vector1 = new int [10];
-                int suma=0,j;
+                int suma=0;
                     
+        System.out.println("intoduce diez numeros");
+        for ( int j = 0 ; j < vector.length ; j++){
+        vector [j] = in.nextInt();
+        }
+        
+        for(int j = 0; j < vector1.length; j++){
+            suma += vector1[j];
+        }
+
+        System.out.println("la suma es:" + suma);
+
+
 
 
 //Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego lo recorra para averiguar el máximo y mínimo y mostrarlos por pantalla.
 
+    in = new Scanner(System.in);
+    int[] vector2 = new int [10];
     
             
+    System.out.println("intoduce diez numeros");
+    for ( int p = 0 ; p < vector.length ; p++){
+    vector [p] = in.nextInt();
+    }
+    
     }
 }
