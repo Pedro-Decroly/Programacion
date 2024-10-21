@@ -210,57 +210,60 @@ public class App {
 
 //10Crea un programa para realizar cálculos relacionados con la altura (en metros) de personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por teclado. Luego mostrará la altura media, máxima y mínima, así como cuántas personas miden por encima y por debajo de la media.
 
-in = new Scanner(System.in);
-double suma3 = 0, media, max, min;
-int personasArriba = 0, personasAbajo = 0;
+    in = new Scanner(System.in);
+    double suma3 = 0, media, max, min;
+    int personasArriba = 0, personasAbajo = 0;
 
 
-System.out.print("Introduce el número de personas: ");
-int S = scanner.nextInt();
+    System.out.print("Introduce el número de personas: ");
+    int S = scanner.nextInt();
 
-double[] alturas = new double[N];
+    double[] alturas = new double[S];
 
-for (int i = 0; i < S; i++) {
-    System.out.print("Introduce la altura de la persona " + (i+1) + " (en metros): ");
-    alturas[i] = scanner.nextDouble();
-    suma += alturas[i];
-}
-
-media = suma / S;
-
-
-max = alturas[0];
-min = alturas[0];
-
-
-for (int i = 0; i < S; i++) {
-    if (alturas[i] > max) {
-        max = alturas[i];
+    for (int i = 0; i < S; i++) {
+        System.out.print("Introduce la altura de la persona " + (i+1) + " (en metros): ");
+        alturas[i] = scanner.nextDouble();
+        suma += alturas[i];
     }
-    if (alturas[i] < min) {
-        min = alturas[i];
-    }
-    if (alturas[i] > media) {
-        personasArriba++;
-    } else if (alturas[i] < media) {
-        personasAbajo++;
-    }
-}
+
+    media = suma / S;
 
 
-System.out.println("Resultados:");
-System.out.printf("Altura media:", media);
-System.out.printf("Altura máxima:", max);
-System.out.printf("Altura mínima:", min);
-System.out.println("Personas por encima de la media: " + personasArriba);
-System.out.println("Personas por debajo de la media: " + personasAbajo);
+    max = alturas[0];
+    min = alturas[0];
+
+
+    for (int i = 0; i < S; i++) {
+        if (alturas[i] > max) {
+            max = alturas[i];
+        }
+        if (alturas[i] < min) {
+            min = alturas[i];
+        }
+        if (alturas[i] > media) {
+            personasArriba++;
+        } else if (alturas[i] < media) {
+            personasAbajo++;
+        }
+    }
+
+
+    System.out.println("Resultados:");
+    System.out.printf("Altura media:", media);
+    System.out.printf("Altura maxima:", max);
+    System.out.printf("Altura minima:", min);
+    System.out.println("Personas por encima de la media: " + personasArriba);
+    System.out.println("Personas por debajo de la media: " + personasAbajo);
 
 
 //11. Crea un programa que cree dos arrays de enteros de tamaño 100. Luego introducirá en el primer array todos los valores del 1 al 100. Por último, deberá copiar todos los valores del primer array al segundo array en orden inverso, y mostrar ambos por pantalla.
 
-    double[] numeros1 = new double[100];
-    
+    double[] array = new double[100];
+    double[] array1 = new double[100];  
 
+    for (int i = 0; i < array1.length; i++) {
+        array1 [i] = i + 1;
+    }
 
 
 
