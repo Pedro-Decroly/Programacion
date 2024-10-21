@@ -265,11 +265,21 @@ public class App {
         array1 [i] = i + 1;
     }
 
+    System.arraycopy(array1, 0, array, 0, array1.length);
 
+//12 Crea un programa que cree un array de 10 enteros y luego muestre el siguiente menú.
 
+    String opcion ="";
 
+    in = new Scanner(System.in);
 
+    int[] vector7 = new int [10];
 
-
-}
+        do{
+            System.out.println("a-Mostras valores");
+            System.out.println("b-Introducir valor");
+            System.out.println("c-Salir");
+            opcion = scanner.nextLine();
+        }while(!opcion.equals("5"));
+    }
 }
