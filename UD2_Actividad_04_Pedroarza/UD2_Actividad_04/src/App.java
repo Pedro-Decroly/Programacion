@@ -4,7 +4,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
-//Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
+//1 Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre todos sus valores.
 
     Scanner in = new Scanner(System.in);
 
@@ -23,7 +23,7 @@ public class App {
         System.out.println(vector [i]+"");
         }
 
-//Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre la suma de todos los valores
+//2 Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego muestre la suma de todos los valores
 
     in = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class App {
 
    System.out.println("la suma es:" + suma);
 
-//Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego lo recorra para averiguar el máximo y mínimo y mostrarlos por pantalla.
+//3 Crea un programa que pida diez números reales por teclado, los almacene en un array, y luego lo recorra para averiguar el máximo y mínimo y mostrarlos por pantalla.
 
     in = new Scanner(System.in);
 
@@ -69,7 +69,7 @@ public class App {
 
     System.out.println("El número mínimo es: " + minimo);	
 
-//. Crea un programa que pida veinte números enteros por teclado, los almacene en un array y luego muestre por separado la suma de todos los valores positivos y negativos.
+//.4 Crea un programa que pida veinte números enteros por teclado, los almacene en un array y luego muestre por separado la suma de todos los valores positivos y negativos.
 
     in = new Scanner(System.in);
 
@@ -97,7 +97,7 @@ public class App {
     }
     System.out.println(negativos + positivos);
 
-//Crea un programa que pida veinte números reales por teclado, los almacene en un array y luego lo recorra para calcular y mostrar la media: (suma de valores) / nº de valores
+//5 Crea un programa que pida veinte números reales por teclado, los almacene en un array y luego lo recorra para calcular y mostrar la media: (suma de valores) / nº de valores
 
     in = new Scanner(System.in);
 
@@ -115,7 +115,7 @@ public class App {
             suma2 += vector4 [i];
         }
         System.out.println("la media es" + (suma2 / vector4.length));
-//Crea un programa que pida dos valores enteros N y M, luego cree un array de tamaño N, escriba M en todas sus posiciones y lo muestre por pantalla
+//6 Crea un programa que pida dos valores enteros N y M, luego cree un array de tamaño N, escriba M en todas sus posiciones y lo muestre por pantalla
     
     in = new Scanner(System.in);
 
@@ -136,7 +136,7 @@ public class App {
     for ( int i = 0 ; i < vector5.length; i++){
         M += vector5 [N];
     }
-//Crea un programa que pida dos valores enteros P y Q, luego cree un array que contenga todos los valores desde P hasta Q, y lo muestre por pantalla.
+//7 Crea un programa que pida dos valores enteros P y Q, luego cree un array que contenga todos los valores desde P hasta Q, y lo muestre por pantalla.
 
     in = new Scanner(System.in);
 
@@ -158,7 +158,7 @@ public class App {
         Q += vector6 [P];
     }
 
-//Crea un programa que cree un array con 100 números reales aleatorios entre 0.0 y 1.0, utilizando Math.random(), y luego le pida al usuario un valor real R. Por último, mostrará cuántos valores del array son igual o superiores a R.
+//8 Crea un programa que cree un array con 100 números reales aleatorios entre 0.0 y 1.0, utilizando Math.random(), y luego le pida al usuario un valor real R. Por último, mostrará cuántos valores del array son igual o superiores a R.
 
     int contador = 0;
 
@@ -182,7 +182,7 @@ public class App {
 
     System.out.println("Hay " + contador + " números mayores o iguales a " + R);
 
-//Crea un programa que cree un array de enteros de tamaño 100 y lo rellene con valores enteros aleatorios entre 1 y 10 (utiliza 1 + Math.random()*10). Luego pedirá un valor N y mostrará en qué posiciones del array aparece N.
+//9 Crea un programa que cree un array de enteros de tamaño 100 y lo rellene con valores enteros aleatorios entre 1 y 10 (utiliza 1 + Math.random()*10). Luego pedirá un valor N y mostrará en qué posiciones del array aparece N.
 
 
     for (int i = 0; i < numeros.length; i++) {
@@ -208,15 +208,58 @@ public class App {
         System.out.println("El número no se encuentra en el array");
     }
 
-//Crea un programa para realizar cálculos relacionados con la altura (en metros) de personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por teclado. Luego mostrará la altura media, máxima y mínima, así como cuántas personas miden por encima y por debajo de la media.
+//10Crea un programa para realizar cálculos relacionados con la altura (en metros) de personas. Pedirá un valor N y luego almacenará en un array N alturas introducidas por teclado. Luego mostrará la altura media, máxima y mínima, así como cuántas personas miden por encima y por debajo de la media.
+
+in = new Scanner(System.in);
+double suma3 = 0, media, max, min;
+int personasArriba = 0, personasAbajo = 0;
 
 
-        
+System.out.print("Introduce el número de personas: ");
+int S = scanner.nextInt();
+
+double[] alturas = new double[N];
+
+for (int i = 0; i < S; i++) {
+    System.out.print("Introduce la altura de la persona " + (i+1) + " (en metros): ");
+    alturas[i] = scanner.nextDouble();
+    suma += alturas[i];
+}
+
+media = suma / S;
 
 
+max = alturas[0];
+min = alturas[0];
 
 
+for (int i = 0; i < S; i++) {
+    if (alturas[i] > max) {
+        max = alturas[i];
+    }
+    if (alturas[i] < min) {
+        min = alturas[i];
+    }
+    if (alturas[i] > media) {
+        personasArriba++;
+    } else if (alturas[i] < media) {
+        personasAbajo++;
+    }
+}
 
+
+System.out.println("Resultados:");
+System.out.printf("Altura media:", media);
+System.out.printf("Altura máxima:", max);
+System.out.printf("Altura mínima:", min);
+System.out.println("Personas por encima de la media: " + personasArriba);
+System.out.println("Personas por debajo de la media: " + personasAbajo);
+
+
+//11. Crea un programa que cree dos arrays de enteros de tamaño 100. Luego introducirá en el primer array todos los valores del 1 al 100. Por último, deberá copiar todos los valores del primer array al segundo array en orden inverso, y mostrar ambos por pantalla.
+
+    double[] numeros1 = new double[100];
+    
 
 
 
