@@ -10,5 +10,6 @@ public class App {
         System.out.println(miMatriz[i]);
         }
     System.out.println("la matriz es" + miMatriz);
+    
     }
 }
