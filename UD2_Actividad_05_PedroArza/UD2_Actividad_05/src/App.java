@@ -126,7 +126,25 @@ public class App {
         
     //Ejercicio5
 
-                
+        System.out.println("Introduce una frase:");
+        String frase1 = scanner.nextLine();
+        
+        String frase2 = frase1.replaceAll(" ", "").toLowerCase();
+        
+        boolean Palindromo = true;
+        int longitud = frase2.length();
+        
+        for (int i = 0; i < longitud; i++) {
+            if (frase2.charAt(i) != frase2.charAt(longitud - 1 - i)) {
+                Palindromo = false;
+            }
+        }
+        
+        if (Palindromo){
+            System.out.println("La frase es un palíndromo.");
+        } else{
+            System.out.println("La frase no es un palíndromo.");
+        }          
                 
 
 
