@@ -269,17 +269,125 @@ public class App {
 
 //12 Crea un programa que cree un array de 10 enteros y luego muestre el siguiente menú.
 
-    String opcion ="";
+    //EJERCICIO12
+        
+    String [] clientes = new String [10];
+		
+    String opcion = reader.nextLine();;
+    
+    
+    do {
+        System.out.println("a - mostrar valores");
+        
+        System.out.println("b - introducir valor");
+        
+        System.out.println("c - salir");
+        
+        
+        
+        
+         if(opcion.equals("a")){
+             
+             for(int i = 0; i < clientes.length; i++) {
+                 
+                 System.out.println(clientes[i]);
+                 
+             }
+             
+            }
+         
+            else if(opcion.equals("b")){
+            
+                 System.out.print("Introduce la posición (0-9): ");
+                 
+                 int posicion = reader.nextInt();
+                 
+                 System.out.print("Introduce el valor: ");
+                 
+                 String valor = reader.toString();
 
-    in = new Scanner(System.in);
+                 
+                 if (posicion >= 0 && posicion < clientes.length) {
+                     
+                     clientes[posicion] = valor;
+                     
+                     System.out.println("Valor " + valor + " introducido en la posición " + posicion);
+                     
+                 }else {
+                     
+                     System.out.println("posicion no valida");	                 }
+                
+            }
+         
 
-    int[] vector7 = new int [10];
+            else if(opcion.equals("c")){
+            
+                System.out.println("adios.");
+                
+            }
+         
+            else{
 
-        do{
-            System.out.println("a-Mostras valores");
-            System.out.println("b-Introducir valor");
-            System.out.println("c-Salir");
-            opcion = scanner.nextLine();
-        }while(!opcion.equals("5"));
+                System.out.println("la opcion no es coorecta.");
+                
+            }
+        
+    }while(!opcion.equals("c"));
+    
+    
+
+    //EJERCICIO 13
+    
+    System.out.print("introduce el valor V: ");
+    int V = scanner.nextInt();
+
+    System.out.print("introduce el valor I: ");
+    int I = scanner.nextInt();
+
+    System.out.print("introduce el valor N: ");
+    int K = scanner.nextInt();
+
+    
+    int[] secuencia = new int[K];
+
+    
+    for (int i = 0; i < ; i++) {
+        secuencia[i] = V + (i * I);
+    }
+
+    
+    System.out.println("La secuencia es:");
+    
+    for (int num : secuencia) {
+        
+        System.out.print(num + " ");
+        
+    }
+    
+    //EJERCICIO 14
+    
+    int[] secval = new int[55];
+     
+    int C = 0;
+
+    
+    for (int i = 1; i <= 10; i++) {
+        
+        for (int j = 0; j < i; j++) {
+            
+            secval[C] = i;
+            
+            C++;
+            
+        }
+    }
+
+    
+    for (int numero : secval) {
+        
+        System.out.print(numero);
+        
+    }
+
     }
 }
