@@ -1,57 +1,54 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Muy buenas jugador y bien venido al mitico jugo Piedra,Papel y Tijeras");
-        System.out.println("Antes de enpezar a jugar te voy a explicar las breves normas de este juego: ");
-        System.out.println("Piedra gana a tijeras=T (piedra rompe tijeras)." + //
-                            "Papel gana a piedra=P (papel cubre piedra)." + //
-                            "Tijeras gana a papel=L (tijeras cortan papel).");
-    
-        String opcion ="";
-        Scanner reader1 = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
+            Random random = new Random();
+            String[] opciones = {"P", "L", "T"};
+            String[] nombres = {"Piedra", "Papel", "Tijeras"};
+            
+            System.out.println("¡Bienvenido al juego de Piedra, Papel o Tijera!");
+            System.out.println("Antes de enpezar a jugar te voy a explicar las breves normas de este juego: ");
+            System.out.println("Piedra gana a tijeras=T (piedra rompe tijeras)." + //
+                                "Papel gana a piedra=P (papel cubre piedra)." + //
+                                "Tijeras gana a papel=L (tijeras cortan papel).");
+            System.out.println("Elije una:");
+            System.out.println("P - Piedra");
+            System.out.println("L - Papel");
+            System.out.println("T - Tijeras");
+            System.out.println("S - Salir del juego");
+            
+            while (true) {
         
-        do {
-            System.out.println("Elije una letra:");
-                System.out.println("1-P");
-                System.out.println("2-L");
-                System.out.println("3-T");
-                System.out.println("4-S");
-                opcion = reader1.nextLine();
-               
-               
-                switch(opcion)
-                {
-                    case "1":
-                    reader1 = new Scanner(System.in);
-                    
-                    
-                    break;
-                    
-                    case "2":
-                    reader1 = new Scanner(System.in);
-                    
-    
-                    break;
-                    
-                    case "3":
-                    reader1 = new Scanner(System.in);
-                    
-    
-                    break;
-    
-                    case "4":
-                    reader1 = new Scanner(System.in);
-                    
-    
-                    break;
-    
-                default:
-                    System.out.println("Introduzca una opcion correcta del menu");
-                    break;
-    
-                }
-            }while(!opcion.equals("5"));
+            int jugadaOrdenador = random.nextInt(3);
+            System.out.print("Elige tu jugada (P, L, T o S para salir): ");
+            String jugadaUsuario = scanner.nextLine().toUpperCase();
+            
+        
+            if (jugadaUsuario.equals("S")) {
+            System.out.println("¡Gracias por jugar! Hasta luego.");
+            break;
+            }
+            
+        
+            if (!jugadaUsuario.equals("P") && !jugadaUsuario.equals("L") && !jugadaUsuario.equals("T")) {
+            System.out.println("Jugada no válida. Intenta de nuevo.");
+            continue;
+            }
+            
+
+            System.out.println("La Ordenador eligió: " + nombres[jugadaOrdenador]);
+            
+        
+            if (jugadaUsuario.equals(opciones[jugadaOrdenador])) {
+            System.out.println("¡Es un empate!");
+            } else if ((jugadaUsuario.equals("P") && opciones[jugadaOrdenador].equals("T")) ||
+            (jugadaUsuario.equals("L") && opciones[jugadaOrdenador].equals("P")) ||
+            (jugadaUsuario.equals("T") && opciones[jugadaOrdenador].equals("L"))) {
+            System.out.println("¡Ganaste");
+            }
+        }
     }
 }
