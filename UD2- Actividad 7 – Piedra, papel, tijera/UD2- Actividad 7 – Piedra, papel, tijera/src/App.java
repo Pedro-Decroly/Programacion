@@ -14,7 +14,7 @@ public class App {
 
             //Explicaicon
 
-            System.out.println("¡Bienvenido al juego de Piedra, Papel o Tijera!");
+            System.out.println("¡Bienvenido al juego de Piedra, Papel o Tijera! ");
 
             System.out.println("Antes de enpezar a jugar te voy a explicar las breves normas de este juego: ");
 
@@ -26,7 +26,7 @@ public class App {
 
             //Menu de eleccion
 
-            System.out.println("Elije una:");
+            System.out.println("Elije sabiendo que:");
 
             System.out.println("P - Piedra");
 
@@ -42,7 +42,7 @@ public class App {
             
             int jugadaOrdenador = random.nextInt(3);
 
-            System.out.print("Elige tu jugada (P, L, T o S para salir): ");
+            System.out.print("Elige tu jugada: ");
 
             String jugadaUsuario = scanner.nextLine().toUpperCase();
             
@@ -56,7 +56,7 @@ public class App {
 
             }
             
-            //Por si elijes algo que no sea P,L o T
+            //Por si elijes algo que no sea P L o T
 
             if (!jugadaUsuario.equals("P") && !jugadaUsuario.equals("L") && !jugadaUsuario.equals("T")) {
 
@@ -73,7 +73,7 @@ public class App {
     
             if (jugadaUsuario.equals(opciones[jugadaOrdenador])) {
 
-            System.out.println("¡Es un empate!");
+            System.out.println("¡¡Es un empate!!");
             
             } else if ((jugadaUsuario.equals("P") && opciones[jugadaOrdenador].equals("T")) ||
 
@@ -81,7 +81,7 @@ public class App {
 
             (jugadaUsuario.equals("T") && opciones[jugadaOrdenador].equals("L"))) {
 
-            System.out.println("Ganaste");
+            System.out.println("¡¡Ganaste!!");
 
             }else if ((jugadaUsuario.equals("T") && opciones[jugadaOrdenador].equals("P")) ||
 
@@ -89,7 +89,7 @@ public class App {
 
             (jugadaUsuario.equals("P") && opciones[jugadaOrdenador].equals("L"))) {
 
-            System.out.println("Perdiste");
+            System.out.println("¡¡Perdiste!!");
             }
         }
     }
