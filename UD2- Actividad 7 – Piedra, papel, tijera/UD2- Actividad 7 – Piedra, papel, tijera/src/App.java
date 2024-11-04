@@ -13,7 +13,7 @@ public class App {
             String[] nombres = {"Piedra", "Papel", "Tijeras"};
 
             //Explicaicon
-            
+
             System.out.println("¡Bienvenido al juego de Piedra, Papel o Tijera!");
 
             System.out.println("Antes de enpezar a jugar te voy a explicar las breves normas de este juego: ");
@@ -23,6 +23,8 @@ public class App {
                                 "Papel gana a piedra=P (papel cubre piedra)." + //
 
                                 "Tijeras gana a papel=L (tijeras cortan papel).");
+
+            //Menu de eleccion
 
             System.out.println("Elije una:");
 
@@ -34,8 +36,10 @@ public class App {
 
             System.out.println("S - Salir del juego");
             
+            //Eleccion de jugada
+
             while (true) {
-        
+            
             int jugadaOrdenador = random.nextInt(3);
 
             System.out.print("Elige tu jugada (P, L, T o S para salir): ");
@@ -65,7 +69,7 @@ public class App {
 
             System.out.println("La Ordenador eligió: " + nombres[jugadaOrdenador]);
             
-        //Resultados de las jugadas.
+            //Resultados de las jugadas.
     
             if (jugadaUsuario.equals(opciones[jugadaOrdenador])) {
 
