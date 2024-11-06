@@ -20,7 +20,7 @@ public class App {
 
             System.out.println("Piedra gana a tijeras=T (piedra rompe tijeras)." + //
 
-                                "Papel gana a piedra=P (papel cubre piedra)." + //
+                                "Papel gana a piedra=P (papel envuelve piedra)." + //
 
                                 "Tijeras gana a papel=L (tijeras cortan papel).");
 
