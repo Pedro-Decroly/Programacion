@@ -43,4 +43,13 @@ import java.time.LocalDateTime;
             System.out.println("El valor de la cantidad tiene que ser positivo");
         }
     }
+
+    //Metodo infoMovimiento
+
+    public String mostrarInfoMovimiento(){
+
+        String info = String.format("Movimiento - id: %s,fecha: %s,tipo: %s, cantidad: %s", this.id, this,fecha, this.tipo, this.cantidad);
+
+        return info;
+    }
 }
