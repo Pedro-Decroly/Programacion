@@ -44,9 +44,9 @@ import java.time.LocalDateTime;
         }
     }
 
-    //Metodo infoMovimiento
+//Metodo infoMovimiento
 
-    public String mostrarInfoMovimiento(){
+     public String mostrarInfoMovimiento(){
 
         String info = String.format("Movimiento - id: %s,fecha: %s,tipo: %s, cantidad: %s", this.id, this,fecha, this.tipo, this.cantidad);
 
