@@ -1,71 +1,64 @@
 public class CuentaBancaria {
 
 
-    //Atributos
+
+//Atributos
     private String iban;
     private String titular;
-    private String saldo;
-
-
+    private int saldo;
+    
+    
 //Coleccion de Movimientos
     private Movimiento [] movimientos;
     private int nElementosActuales;
-
+    
 //Contructor 
-    public CuentaBancaria(String iban, String titular, String saldo, String moviento, int nMovimientos){
+    public CuentaBancaria(String iban, String titular, int saldo, int nMovimientos){
         this.iban = iban;
         this.titular = titular;
-        this.saldo = saldo;
+        this.saldo = 0;
         this.movimientos = new Movimiento[nMovimientos];
-        this.nElementosActuales = 0;
-        }
-
+        this.nElementosActuales = 100;
+            }
+    
         public String getiban(){
             return this.iban;
-        }
-
+            }
+    
         public String gettitular(){
             return this.titular;
-        }
-
-        public String getsaldo(){
-            return this.saldo;
-        }
-
-//Creaccion de Movimiento
-    public boolean crearMovimiento(Movimiento m1){
-
-        boolean isAdd = false;
-        if(m1 != null)
-        {
-        this.movimientos[nElementosActuales] = m1;
-        this.nElementosActuales++;
-        isAdd =true;
-        }
-        return isAdd;
-        }
-//Metodo
-        
-    public String infoMovimiento(){
-
-        String info = String.format("Movimiento - iban %s, titular %s, saldo %s", this.iban, this.titular, this.saldo);
-            return info;
-
-    String infoColeccion(){
-        String result ="";
-        if (this.nElementosActuales>0){
-            for(Movimiento 1 : this.movimientos){
-                if(1 !=null){
-                    result += 1.infoMovimiento()+ "/n";
-                }
             }
-        }
-        else{
-            result= "no hay ningun movimiento";
-        }
-        return result;
-    }
+    
+        public int getsaldo(){
+            return this.saldo;
+            }
+    
+//Creaccion de Ingreso
+    public boolean ingreso(Movimiento m1){
+    
+        boolean isAdd = false;
+            if(m1 != null)
+            {
+            this.movimientos[nElementosActuales] = m1;
+            this.nElementosActuales++;
+            this.saldo += m1.getCantidad();
+            isAdd =true;
+            }
+            return isAdd;
+            }
+//Creacion de Retirada
+    public boolean retirada (Movimiento m1){
 
+        boolean isRemoved = false;
+            if (m1 !=null){
+                    int index = -1;
+                    for(int i = 0; i <this.movimientos.length; i++){
+                        if(this.movimientos[i] !=null){
+                            index =i;
+                        }
+                    }
+            }
+        return isRemoved;
     }
-
+    
 }
