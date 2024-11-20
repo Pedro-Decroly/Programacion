@@ -12,13 +12,14 @@ import java.time.LocalDateTime;
 
 //Constructor
 
-    public Movimiento(String tipo, double cantidad){
+    public Movimiento(String tipo, double cantidad){ 
 
         this.id = contador;
         this.contador ++;
         this.fecha = LocalDateTime.now().toString();
         this.tipo = tipo;
         this.cantidad = cantidad;
+
     }
 
 
