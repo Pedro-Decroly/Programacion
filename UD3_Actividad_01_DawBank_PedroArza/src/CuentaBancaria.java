@@ -60,5 +60,15 @@ public class CuentaBancaria {
             }
         return isRemoved;
     }
+
+    public char[] infoCuenta() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'infoCuenta'");
+    }
+
+    public char[] infoMovimiento() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'infoMovimiento'");
+    }
     
 }
