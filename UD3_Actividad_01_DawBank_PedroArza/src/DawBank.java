@@ -15,7 +15,7 @@ public class DawBank {
 		Pattern patiban = Pattern.compile("[A-Z]{2}[0-9]{22}");
 		Matcher matiban = patiban.matcher(iban);
 		while (!matiban.matches()) {
-			System.out.println("El IBAN introducido es incorrecto" + "\nIntroduce un IBAN correcto");
+			System.out.println("El IBAN introducido es incorrecto");
 			iban = entrada.nextLine();
 			matiban = patiban.matcher(iban);
 		}

@@ -1,7 +1,4 @@
-
-import java.lang.classfile.instruction.ThrowInstruction;
-
-    //Clase Pelicula
+        //Clase Pelicula
 public class Pelicula {
             private static int contador =0;
             private int codigo =0;
@@ -12,7 +9,7 @@ public class Pelicula {
             private String FechaAlquiler;
             private String IsAlquilada;
 
-    //Constructor
+        //Constructor
             public Pelicula(Sting tipo, int cantidad){
 
                 this.codigo= contador;
@@ -22,26 +19,37 @@ public class Pelicula {
                 this.FechaRegistro=FechaRegistro;
                 this.FechaBaja=FechaBaja;
                 this.FechaAlquiler=FechaAlquiler;
+                this.IsAlquilada=IsAlquilada;
             }
-    //Getters ySetters
+        //Getters ySetters
             public int getcodigo(){
                 return this.codigo;
             }
            public String getTitulo(){
-                return this.Titulo ;
+                return this.Titulo;
            }
             public String getGenero(){
-                    return this.Genero ;
+                return this.Genero;
             }
             public String getFechaRegistro(){
-                    return this.FechaRegistro ;
+                return this.FechaRegistro;
             }
             public String getFechaBaja(){
-                    return this.FechaBaja ;
+                return this.FechaBaja;
             }
             public String getFechaAlquiler(){
-                    return this.FechaAlquiler ;
+                return this.FechaAlquiler;
             }
+            public String getIsAlquilada (){
+                return this.IsAlquilada;
+            }
+        //Metodo mostrarInfoPelicula
+            
+            public String mostrarInfoPelicula(){
+
+                String info = String.format("Pelicula - Titulo:%s, Genero:%s,FechaRegistro:%s,FechaBaja:%s,FechaAlquiler%s",this.Titulo,this.Genero,this.FechaRegistro,this.FechaBaja,this.FechaAlquiler);
+                        return info;
+                }
 
 
 
