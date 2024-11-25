@@ -9,7 +9,7 @@ public class DawBank {
    
 //Creamos el scaner para poder escribir el IBAN y el titular
         System.out.println("Introduce tu IBAN para crear tu cuenta");
-            Scanner entrada;
+            Scanner entrada = null;
             String iban = entrada.nextLine();
       
 		Pattern patiban = Pattern.compile("[A-Z]{2}[0-9]{22}");
@@ -29,7 +29,7 @@ public class DawBank {
 
 CuentaBancaria Cuenta1 = new CuentaBancaria(null, null,  0, 100);
 //Creamos el menu Ingresar reguntar cuanto dinero quiere ingredar-Retirar pedir que cunanto dinero vas a querer ingresar y no se puede tener un descubierto de -50
-String opcion;
+String opcion = null;
 do{
     entrada = new Scanner(System.in);
     System.out.println("Buenas Bienvenido");
@@ -61,17 +61,16 @@ do{
 
         case "5":
             entrada = new Scanner(System.in);
-            System.out.println("INGRESAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A INGRESAR");
+            System.out.println("INGRESAR SALDO");
             double cantidadingreso = entrada.nextDouble();
 
             if(cantidadingreso > 0){
                 if (cantidadingreso > 3000) {
-                    System.out.println("VA A REALIZAR UNA OPERACION DE MAS DE 3000 EUROS." 
-                    + "\nNOTIFIQUE A HACIENDA POR FAVOR");
+                    System.out.println("NOTIFIQUE A HACIENDA POR FAVOR");
                 }
                 Movimiento ingreso = new Movimiento("Ingreso",cantidadingreso);
                 Cuenta1.ingreso(ingreso);
-                System.out.println("INGRESO REALIZADO CON EXITO" + "\n" + Cuenta1.getsaldo());
+                System.out.println("INGRESO REALIZADO" +  Cuenta1.getsaldo());
             }
 
             else {
@@ -81,34 +80,17 @@ do{
 
         case "6":
             entrada = new Scanner(System.in);
-            System.out.println("RETIRAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A RETIRAR");
+            System.out.println("RETIRAR SALDO");
             double cantidadretirada = entrada.nextDouble();
 
             if (cantidadretirada > 0) {
                 if (cantidadretirada > 3000) {
-                    System.out.println("VA A REALIZAR UNA OPERACION DE MAS DE 3000 EUROS." 
-                    + "\nNOTIFIQUE A HACIENDA POR FAVOR");
+                    System.out.println("NOTIFIQUE A HACIENDA POR FAVOR");
                 }
                 Movimiento retirada = new Movimiento("Retirada",cantidadretirada);
                 Cuenta1.retirada(retirada);
-                System.out.println("RETIRADA REALIZADA CON EXITO" + "\n" + Cuenta1.getsaldo());
+                System.out.println("RETIRADA REALIZADA ");
             }
-            else{
-                System.out.println("POR FAVOR, INTRODUCE UNA CANTIDAD VALIDA");
-            }
-            break;
-
-        case "7":
-            System.out.println(Cuenta1.infoMovimiento());
-            break;
-
-        case "8":
-            System.out.println("Saliendo de DawBank. ¡Hasta pronto!");
-            break;
-
-        default:
-            System.out.println("Seleccione una opcion valida por favor");
-            break;
     }
 }
 while(!opcion.equals("8"));
