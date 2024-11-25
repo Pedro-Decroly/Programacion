@@ -10,7 +10,7 @@ public class Pelicula {
             private String IsAlquilada;
 
         //Constructor
-            public Pelicula(Sting tipo, int cantidad){
+            public Pelicula(String tipo, int cantidad){
 
                 this.codigo= contador;
                 this.contador ++;
