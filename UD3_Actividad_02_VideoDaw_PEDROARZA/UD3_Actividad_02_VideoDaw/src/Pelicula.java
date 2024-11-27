@@ -1,7 +1,11 @@
         //Clase Pelicula
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Pelicula {
-            private static int contador =0;
-            private int codigo =0;
+            private static int contador = 0;
+            private int codigo = 0;
             private String Titulo;
             private String Genero;
             private String FechaRegistro;
@@ -16,9 +20,9 @@ public class Pelicula {
                 this.contador ++;
                 this.Titulo = Titulo;
                 this.Genero=Genero;
-                this.FechaRegistro=FechaRegistro;
-                this.FechaBaja=FechaBaja;
-                this.FechaAlquiler=FechaAlquiler;
+                this.FechaRegistro=LocalDate.now().toString();
+                this.FechaBaja=LocalDate.now().toString();
+                this.FechaAlquiler=LocalDateTime.now().toString();
                 this.IsAlquilada=IsAlquilada;
             }
         //Getters ySetters
@@ -49,19 +53,6 @@ public class Pelicula {
 
                 String info = String.format("Pelicula - Titulo:%s, Genero:%s,FechaRegistro:%s,FechaBaja:%s,FechaAlquiler%s",this.Titulo,this.Genero,this.FechaRegistro,this.FechaBaja,this.FechaAlquiler);
                         return info;
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
 
         }
