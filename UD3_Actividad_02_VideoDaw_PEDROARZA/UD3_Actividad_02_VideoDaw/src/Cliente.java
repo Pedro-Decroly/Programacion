@@ -42,5 +42,6 @@ public class Cliente {
     public String FechaNacimiento(){
         return this.FechaNacimiento;
     }
+//Mostrar info cliente
     
 }
