@@ -43,5 +43,9 @@ public class Cliente {
         return this.FechaNacimiento;
     }
 //Mostrar info cliente
-    
+    public String mostrarInfoCliente(){
+        
+        String info = String.format("Cliente - NumSocio:%s, Direccion:%s, Nombre:%s, Dni:%s, FechadeBaja:%s, FechadeNacimiento",this.Direccion,this.DNI,this.FechaBaja,this.FechaNacimiento,this.Nombre,this.NumSocio);
+            return info ;
+    }
 }

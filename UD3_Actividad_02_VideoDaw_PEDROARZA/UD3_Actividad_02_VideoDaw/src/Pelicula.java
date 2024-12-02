@@ -8,9 +8,9 @@ public class Pelicula {
             private int codigo = 0;
             private String Titulo;
             private String Genero;
-            private String FechaRegistro;
-            private String FechaBaja;
-            private String FechaAlquiler;
+            private LocalDate FechaRegistro;
+            private LocalDate FechaBaja;
+            private LocalDateTime FechaAlquiler;
             private String IsAlquilada;
 
         //Constructor
@@ -20,9 +20,9 @@ public class Pelicula {
                 this.contador ++;
                 this.Titulo = Titulo;
                 this.Genero=Genero;
-                this.FechaRegistro=LocalDate.now().toString();
-                this.FechaBaja=LocalDate.now().toString();
-                this.FechaAlquiler=LocalDateTime.now().toString();
+                this.FechaRegistro=LocalDate.now();
+                this.FechaBaja=LocalDate.now();
+                this.FechaAlquiler=LocalDateTime.now();
                 this.IsAlquilada=IsAlquilada;
             }
         //Getters ySetters
@@ -35,13 +35,13 @@ public class Pelicula {
             public String getGenero(){
                 return this.Genero;
             }
-            public String getFechaRegistro(){
+            public LocalDate getFechaRegistro(){
                 return this.FechaRegistro;
             }
-            public String getFechaBaja(){
+            public LocalDate getFechaBaja(){
                 return this.FechaBaja;
             }
-            public String getFechaAlquiler(){
+            public LocalDateTime getFechaAlquiler(){
                 return this.FechaAlquiler;
             }
             public String getIsAlquilada (){
