@@ -34,9 +34,14 @@ public class VideoDaw {
         }
 //Mostra Info VideoClub
 
-        
+
 
 //Mostrar Peliculas Registradas
 
+
+
 //Alquilar Peliculas
+
+
+
     }
