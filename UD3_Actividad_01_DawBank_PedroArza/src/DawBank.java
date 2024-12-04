@@ -27,7 +27,7 @@ public class DawBank {
 
 //Creamos el objeto Cuenta Bancaria usando el constructor Cuenta Bancaria
 
-CuentaBancaria Cuenta1 = new CuentaBancaria(null, null,  0, 100);
+CuentaBancaria Cuenta1 = new CuentaBancaria(null, null,  0);
 //Creamos el menu Ingresar reguntar cuanto dinero quiere ingredar-Retirar pedir que cunanto dinero vas a querer ingresar y no se puede tener un descubierto de -50
 String opcion = null;
 do{

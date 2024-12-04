@@ -13,12 +13,12 @@ public class CuentaBancaria {
     private int nElementosActuales;
     
 //Contructor 
-    public CuentaBancaria(String iban, String titular, int saldo, int nMovimientos){
+    public CuentaBancaria(String iban, String titular, int nMovimientos){
         this.iban = iban;
         this.titular = titular;
         this.saldo = 0;
         this.movimientos = new Movimiento[nMovimientos];
-        this.nElementosActuales = 100;
+        this.nElementosActuales = 0;
             }
     
         public String getiban(){
@@ -64,11 +64,6 @@ public class CuentaBancaria {
     public char[] infoCuenta() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'infoCuenta'");
-    }
-
-    public char[] infoMovimiento() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'infoMovimiento'");
     }
     
 }
