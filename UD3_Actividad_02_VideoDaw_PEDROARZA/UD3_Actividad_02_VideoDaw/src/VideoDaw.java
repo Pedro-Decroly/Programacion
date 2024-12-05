@@ -67,13 +67,15 @@ public class VideoDaw {
                     return ClientesRegistrados;       
         }
     
-    //Metodo Alquilar Pelicula(Pelicula=p Cliente =c)
+//Metodo Alquilar Pelicula(Pelicula=p Cliente =c)
     
         public String AlquilerPelicula(Pelicula p ,Cliente c){
             
             
         return AlquilerPelicula(p, c);
     }
+
+
 //Dar Baja Cliente
 
 
