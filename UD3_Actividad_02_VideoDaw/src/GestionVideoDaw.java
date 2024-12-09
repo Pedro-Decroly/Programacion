@@ -1,12 +1,11 @@
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class GestionVideoDaw {
-    public static void main(String[] args) throws Exception {}
+    public static void main(String[] args) throws Exception {} 
 Scanner sc = new Scanner(System.in);
-    ArrayList<Cliente> clientes = new ArrayList<>();
-    ArrayList<Pelicula> peliculas = new ArrayList<>();
+
     String nombreVideoclub;
 
     public void mostrarMenu() {
