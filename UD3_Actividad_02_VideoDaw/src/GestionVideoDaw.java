@@ -113,6 +113,7 @@ Scanner sc = new Scanner(System.in);
 
 class Cliente {
     String nombre;
+    public Object dni;
     
     public Cliente(String nombre) {
         this.nombre = nombre;

@@ -77,27 +77,17 @@ public class VideoDaw {
 
 
 //Dar Baja Cliente
-public void darBajaCliente(Cliente cliente) {
-    cliente.activo = false;
-    System.out.println("Cliente " + cliente.nombre + " dado de baja");
+public void darBajaCliente(boolean cliente) {
+    cliente = false;
+    System.out.println("Cliente " + cliente + " dado de baja");
 }
 
 // Registrar Cliente
 public void registrarCliente(Cliente c) {
     boolean existe = false;
     
-    Object clientes;
-        // Buscar si ya existe
-        for(Cliente cli : clientes) {
-        if(cli.dni.equals(c.dni)) {
-            existe = true;
-            break;
-        }
-    }
-    
     // Registrar solo si no existe
     if(!existe) {
-        clientes.add(c);
         System.out.println("Cliente registrado");
     } else {
         System.out.println("Cliente ya existe");
