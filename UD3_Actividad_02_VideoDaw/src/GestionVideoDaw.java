@@ -6,6 +6,7 @@ public class GestionVideoDaw {
     public static void main(String[] args) throws Exception {} 
 Scanner sc = new Scanner(System.in);
 
+    String clientes;
     String nombreVideoclub;
 
     public void mostrarMenu() {
@@ -79,7 +80,8 @@ Scanner sc = new Scanner(System.in);
     }
     
     private void alquilarPelicula() {
-        if (peliculas.isEmpty() || clientes.isEmpty()) {
+      
+                if (peliculas.isEmpty() || clientes.isEmpty()) {
             System.out.println("No hay películas o clientes registrados");
             return;
         }
