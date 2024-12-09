@@ -69,30 +69,29 @@ public class VideoDaw {
     
 //Metodo Alquilar Pelicula(Pelicula=p Cliente =c)
     
-        public String AlquilerPelicula(Pelicula p ,Cliente c){
+    public String AlquilerPelicula(Pelicula p ,Cliente c){
             
             
         return AlquilerPelicula(p, c);
     }
 
-
 //Dar Baja Cliente
-public void darBajaCliente(boolean cliente) {
-    cliente = false;
+    public void darBajaCliente(boolean cliente) {
+        cliente = false;
     System.out.println("Cliente " + cliente + " dado de baja");
 }
 
 // Registrar Cliente
-public void registrarCliente(Cliente c) {
-    boolean existe = false;
+    public void registrarCliente(Cliente c) {
+        boolean existe = false;
     
-    // Registrar solo si no existe
-    if(!existe) {
-        System.out.println("Cliente registrado");
-    } else {
-        System.out.println("Cliente ya existe");
+// Registrar solo si no existe
+        if(!existe) {
+            System.out.println("Cliente registrado");
+        } else {
+            System.out.println("Cliente ya existe");
+        }
     }
-}
 }
 
 
