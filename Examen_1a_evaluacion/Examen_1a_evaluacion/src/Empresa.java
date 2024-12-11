@@ -14,8 +14,8 @@ public class Empresa {
     
     //Constructor
         public Empresa (String tipo, int Cantidad){
-            this.CIF=CIF;
-            this.ColeccionTrabajadores=ColeccionTrabajadores;
+            this.CIF = CIF;
+            this.ColeccionTrabajadores = ColeccionTrabajadores;
             this.FechaFundacion = LocalDate.now();
             this.MaxTrabajadores = 50;
             this.NombreEmpresa = NombreEmpresa;
@@ -79,7 +79,7 @@ public boolean CrearTrabajador (Trabajador t1){
             if(index != -1){
                 this.trabajador[index] = null;
                 isRemoved = true;
-                //recolocar el array
+//recolocar el array
                 for(int i = index+1; i < this.trabajador.length; i++){
                     this.trabajador[i-1] = this.trabajador[i];
                 }
@@ -91,12 +91,12 @@ public boolean CrearTrabajador (Trabajador t1){
     }
 
 //Mostrar Info-Trabajadores
-    public String infoTrabajdores(){
+    public String mostrarInfoTrabajador(){
         String result = "";
         if(this.nElementosActuales > 0){
             for(Trabajador l : this.trabajador){
                 if(l != null){
-                    result += l.infoTrabajdor() + "\n";
+                    result += l.mostrarInfoTrabajador() + "\n";
                 }
             }
         }

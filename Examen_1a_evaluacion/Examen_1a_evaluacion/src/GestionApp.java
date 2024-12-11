@@ -34,7 +34,7 @@ do{
             System.out.println(Empresa1.mostrarInfoEmpresa());
             break;
         case "5":
-            System.out.println(Empresa1.infoTrabajdores());
+            System.out.println(Empresa1.mostrarInfoTrabajador());
             break;
         case "6":
             System.out.println(Empresa1.eliminarTrabajador(null));
@@ -44,7 +44,7 @@ do{
     
     }
     while(!opcion.equals("8"));
-entrada.close();
+    entrada.close();
 
-}
+    }
 }

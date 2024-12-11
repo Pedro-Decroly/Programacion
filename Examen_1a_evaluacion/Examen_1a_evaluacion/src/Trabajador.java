@@ -36,14 +36,7 @@ public class Trabajador {
 
 //Metodo informacion del trabajador 
     public String mostrarInfoTrabajador(){
-        String info = String.format("Trabajador - Nombre:%s,Direccion:%s,Dni:%s,FechaNacimineto:%s", this.nombre,this.Direccion,this.DNI,this.FechaNacimiento);
+        String info = String.format("Trabajador - Nombre:%s, Direccion:%s, Dni:%s, FechaNacimineto:%s, NumeroSS:%s", this.nombre, this.Direccion, this.DNI, this.FechaNacimiento, this.NumeroSS);
         return info;
     }
-
-    public String infoTrabajdor() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'infoTrabajdor'");
-    }
-
-    }
-
+}
