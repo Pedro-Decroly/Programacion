@@ -1,3 +1,3 @@
-public class Satelites {
-
+public class Satelites extends Astros {
+    
 }
