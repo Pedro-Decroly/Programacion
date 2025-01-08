@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "Astros/src",
+        "Mascotas/src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
