@@ -8,12 +8,6 @@ public class Contacto {
         this.telefono = telefono;
     }
 
-    public String mostrarInfo(){
-        String info;
-        info =  "Nombre: "+this.nombre + " Telefono: "+this.telefono;
-        return info;
-    }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
