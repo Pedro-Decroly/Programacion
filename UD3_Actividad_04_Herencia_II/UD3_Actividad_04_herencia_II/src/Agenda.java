@@ -1,6 +1,6 @@
 public class Agenda extends Contacto {
 
-    private String buscaContacto;
+    protected static String buscaContacto;
     private String listarContactos;
     private String existeContacto;
 
@@ -23,6 +23,10 @@ public class Agenda extends Contacto {
 
     public void existeContacto(String existeContacto) {
         this.existeContacto = existeContacto;
+    }
+
+    public char[] añadirContacto(Contacto contacto) {
+        throw new UnsupportedOperationException("Unimplemented method 'añadirContacto'");
     }
 
     
