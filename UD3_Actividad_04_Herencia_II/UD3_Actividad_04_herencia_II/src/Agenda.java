@@ -1,34 +1,60 @@
-public class Agenda extends Contacto {
-
-    protected static String buscaContacto;
-    private String listarContactos;
-    private String existeContacto;
-
-    public Agenda(String nombre, String telefono, String buscaContacto, String listarContactos, String existeContacto) {
-        
-        super(nombre, telefono);
-
-        this.buscaContacto = buscaContacto;
-        this.listarContactos = listarContactos;
-        this.existeContacto = existeContacto;
-    }
-
-    public void buscaContacto(String buscaContacto) {
-        this.buscaContacto = buscaContacto;
-    }
-
-    public void listarContactos(String listarContactos) {
-        this.listarContactos = listarContactos;
-    }
-
-    public void existeContacto(String existeContacto) {
-        this.existeContacto = existeContacto;
-    }
-
-    public char[] añadirContacto(Contacto contacto) {
-        throw new UnsupportedOperationException("Unimplemented method 'añadirContacto'");
-    }
-
+class Agenda {
+    private Contacto[] contactos;
+    private int numContactos;
+    private static final int MAX_CONTACTOS = 100;
     
-
+    public Agenda() {
+        contactos = new Contacto[MAX_CONTACTOS];
+        numContactos = 0;
+    }
+    
+    public boolean añadirContacto(Contacto c) {
+        if (numContactos >= MAX_CONTACTOS) {
+            return false;
+        }
+        
+        if (!existeContacto(c.getNombre())) {
+            contactos[numContactos] = c;
+            numContactos++;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean eliminarContacto(String nombre) {
+        int pos = buscaContacto(nombre);
+        if (pos >= 0) {
+            for (int i = pos; i < numContactos - 1; i++) {
+                contactos[i] = contactos[i + 1];
+            }
+            contactos[numContactos - 1] = null;
+            numContactos--;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean existeContacto(String nombre) {
+        return buscaContacto(nombre) >= 0;
+    }
+    
+    public void listarContactos() {
+        if (numContactos == 0) {
+            System.out.println("La agenda está vacía");
+            return;
+        }
+        System.out.println("Lista de contactos:");
+        for (int i = 0; i < numContactos; i++) {
+            System.out.println(contactos[i]);
+        }
+    }
+    
+    public int buscaContacto(String nombre) {
+        for (int i = 0; i < numContactos; i++) {
+            if (contactos[i].getNombre().equals(nombre)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
