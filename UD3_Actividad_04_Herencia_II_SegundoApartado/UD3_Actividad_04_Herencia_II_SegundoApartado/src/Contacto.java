@@ -1,6 +1,6 @@
 class Contacto {
     private String nombre;
-    private String telefono;
+    protected String telefono;
     
     public Contacto(String nombre, String telefono) {
         this.nombre = nombre;
