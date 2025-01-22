@@ -1,4 +1,3 @@
-// Clase Producto
     class Producto implements Comparable<Producto> {
         private String nombre;
         private int cantidad;
