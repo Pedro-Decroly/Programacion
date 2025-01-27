@@ -8,7 +8,7 @@ public class Taller {
 
     public void añadeElemento(String matricula, String marca, String color){
 
-        Coche c1 = new Coche("color", "marca");
+        Coche c1 = new Coche("", "");
         
 
     }
