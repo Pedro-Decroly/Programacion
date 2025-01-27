@@ -1,5 +1,4 @@
-public class Producto {
-    
+    class Producto {
         private String nombre;
         private int cantidad;
         
@@ -29,7 +28,6 @@ public class Producto {
             return "Producto{nombre='" + nombre + "', cantidad=" + cantidad + "}";
         }
         
-        public int compareTo(Producto otro) {
-            return this.nombre.compareTo(otro.nombre);
+
         }
-    }
+    

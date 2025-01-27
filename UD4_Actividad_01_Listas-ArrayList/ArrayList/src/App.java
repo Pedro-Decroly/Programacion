@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -50,7 +49,6 @@ public class App {
         }
         
 // 8. Ordenar la lista por nombre
-        Collections.sort(productos);
         
         System.out.println("nLista ordenada por nombre:");
         it = productos.iterator();
