@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class Taller {
 
-    Map<String, Coche> coches = new HashMap<String, Coche>();
-    
+Map<String, Coche> coches = new HashMap<String, Coche>();
+
 //Añadir Coche
     public void añadeElemento(String matricula, String marca, String color){
-    
+
         Coche coche = new Coche(color, marca);
 
         coches.put(matricula, coche);
