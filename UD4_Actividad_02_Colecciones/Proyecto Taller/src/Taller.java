@@ -32,10 +32,21 @@ Map<String, Coche> coches = new HashMap<String, Coche>();
             System.out.println("La matricula no existe ");
         }
     }
-//visualizaMatriculas
+
+//visualizaMatriculas 
     public void visualizaMatriculas(){
 
-        
+        System.out.println(coches.keySet());
+
+    }
+
+//visualizaCoches
+    public void visualizaCoches(){
+
+    }
+
+//visualizaTaller
+    public void visualizaTaller(){
 
     }
 }
