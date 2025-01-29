@@ -1,5 +1,7 @@
+
 public class Coche {
     
+        public static final String remove = null;
         private String marca;
         private String color;
 
@@ -38,5 +40,4 @@ public class Coche {
         sb.append('}');
         return sb.toString();
     }
-     
 }
