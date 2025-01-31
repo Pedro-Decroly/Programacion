@@ -42,11 +42,16 @@ Map<String, Coche> coches = new HashMap<String, Coche>();
 
 //visualizaCoches
     public void visualizaCoches(){
-
+        for (Coche coche : coches.values()) {
+            System.out.println(coche);
+        }
+        
     }
 
 //visualizaTaller
     public void visualizaTaller(){
-
+        for (var entry : coches.entrySet()) {
+            System.out.println("Matrícula: " + entry.getKey() + ", " + entry.getValue());
+        }
     }
 }
