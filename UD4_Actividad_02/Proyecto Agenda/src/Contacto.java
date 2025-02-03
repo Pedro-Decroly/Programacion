@@ -48,6 +48,14 @@ public void setCorreo(String correo) {
         return sb.toString();
 }
 
+public static void put(String nombre2, int telefono2, String correo2) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'put'");
+}
 
+public boolean containsKey(String nombre2) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'containsKey'");
+}
 
 }
