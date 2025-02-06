@@ -9,16 +9,16 @@ Map<String, Coche> coches = new HashMap<String, Coche>();
 //Añadir Coche
     public void añadeElemento(String matricula, String marca, String color){
 
-        Coche coche = new Coche(color, marca);
+        Coche Cochecito = new Coche(color, marca);
 
-        coches.put(matricula, coche);
+        coches.put(matricula, Cochecito);
 
         System.out.println("Coche añadido correctamente.");
 
         if (coches.containsKey(matricula)){
             System.out.println("la matricula ya existe");
         }else{
-        this.coches.put(matricula, coche);
+        this.coches.put(matricula, Cochecito);
         }
     }
 
