@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws InputMismatchException  {
+    public static void main(String[] args) throws InputMismatchException, Exception  {
         System.out.println("Hello, World!");
 
 //Ejercicio1
@@ -55,7 +55,33 @@ for(double i = 0; i < 5; i++) {
     }
 }
 //Ejercicio4
+
+//Positivo
+
+try{
  
+ System.out.println("Primer funcion Positivo");
+    System.out.print("Introduzca un número: ");
+    int numero5 = rc.nextInt();
+  
+
+}catch(InputMismatchException e){
+    
+        throw new Exception("Error: El número " + " es negativo. Se requiere un número positivo.");
+}
+
+//Negativo
+try {
+    System.out.println("Segunda funcion Negativo");
+    System.out.print("Introduzca un número: ");
+    int numero6 = rc.nextInt();
+    
+} catch (Exception e) {
+
+    throw new Exception("Error: El número " + " es positivo. Se requiere un número Negativo.");
+}
+
+
 //Ejercicio5
 
 
