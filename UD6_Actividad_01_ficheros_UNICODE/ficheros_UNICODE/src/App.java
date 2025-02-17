@@ -1,11 +1,15 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class App {
-    private static final char[][] Producto = null;
     
         public static void main(String[] args) {
-                
+            File nombreFichero = new File("./resources/Almacen.dat");
             LinkedList <Producto> almacenproducto = new  LinkedList <Producto>(); 
             String opcion = "";
             
@@ -45,13 +49,43 @@ public class App {
                     }
                         break;
                     case "3":
-                
+                        System.out.println("Introduce el codigo");
+                        int codigo = reader.nextInt();
+
+                        Producto ProductoEliminar = null;
+                        for( Producto p1 : almacenproducto){
+                            if (p1.getCodigo() == codigo){
+                                ProductoEliminar = p1;
+                            }
+                        }
+                    almacenproducto.remove(ProductoEliminar);
+                    System.out.println("El producto ah sido eliminado");
+                    break;
 
                     case "4":
-                  
+                  System.out.println("Guardando los productos en: Almacen.dat");
+    try{       
+            
+            FileWriter fw = new FileWriter(nombreFichero,true);       
+            BufferedWriter bw = new BufferedWriter(fw);       
+            PrintWriter pw = new PrintWriter(bw);
+           
+                for (int i = 0; i < i; i++) {
+                       
+                        pw.println(almacenproducto.get(i).getCantidad());
+                        pw.println(almacenproducto.get(i).getNombre());
+                        pw.println(almacenproducto.get(i).getPrecio());
+                       
+                 }pw.close();
+        }catch(IOException e){
+        System.out.println("No se ha podido guardar. Error:"+ e);}       
+        
+        break;
 
                     case "5":
-                      
+                    System.out.println("Saliendo del programa, hasta pronto......");
+                    break;
+
                     default:
                     System.out.println("Seleccione una opcion valida porfavor");
                         break;    
