@@ -49,6 +49,7 @@ public class App {
                         int codigo = reader.nextInt();
 
                         Producto ProductoEliminar = null;
+
                         for( Producto p1 : almacenproducto){
                             if (p1.getCodigo() == codigo){
                                 ProductoEliminar = p1;
