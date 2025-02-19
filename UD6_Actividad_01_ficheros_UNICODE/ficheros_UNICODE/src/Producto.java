@@ -6,7 +6,6 @@ public class Producto {
     private  int cantidad;
     private int precio;
     private static int contador = 0;
-    public static int length;
 
     public Producto(int cantidad, String nombre, int precio) {
         this.cantidad = cantidad;

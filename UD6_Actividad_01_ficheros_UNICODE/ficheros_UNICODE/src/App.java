@@ -1,8 +1,4 @@
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -59,29 +55,12 @@ public class App {
                             }
                         }
                     almacenproducto.remove(ProductoEliminar);
-                    System.out.println("El producto ah sido eliminado");
+                    System.out.println("El producto ah sido eliminado correctamente");
                     break;
 
                     case "4":
-                  System.out.println("Guardando los productos en: Almacen.dat");
-    try{       
-            
-            FileWriter fw = new FileWriter(nombreFichero,true);       
-            BufferedWriter bw = new BufferedWriter(fw);       
-            PrintWriter pw = new PrintWriter(bw);
            
-                for (int i = 0; i < i; i++) {
-                       
-                        pw.println(almacenproducto.get(i).getCantidad());
-                        pw.println(almacenproducto.get(i).getNombre());
-                        pw.println(almacenproducto.get(i).getPrecio());
-                       
-                 }pw.close();
-        }catch(IOException e){
-        System.out.println("No se ha podido guardar. Error:"+ e);}       
         
-        break;
-
                     case "5":
                     System.out.println("Saliendo del programa, hasta pronto......");
                     break;
