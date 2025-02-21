@@ -11,6 +11,7 @@ public class App {
             File nombreFichero = new File("./resources/Almacen.dat");
             LinkedList <Producto> almacenproducto = new  LinkedList <Producto>(); 
             String opcion = "";
+
             
     
             do{ 
@@ -74,6 +75,7 @@ public class App {
                         } catch (IOException e) {
                             System.out.println("Error al guardar productos: " + e.getMessage());
                         }
+
                         break;
         
                     case "5":
