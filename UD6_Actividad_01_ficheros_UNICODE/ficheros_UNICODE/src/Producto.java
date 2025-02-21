@@ -62,7 +62,7 @@ public class Producto {
         sb.append(", NOMBRE = ").append(nombre);
         sb.append(", CANTIDAD = ").append(cantidad);
         sb.append(", PRECIO = ").append(precio);
-        sb.append("CODIGO = ").append(codigo);
+        sb.append(", CODIGO = ").append(codigo);
         return sb.toString();
     }
 

@@ -1,4 +1,7 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -60,7 +63,18 @@ public class App {
                     break;
 
                     case "4":
-           
+
+                     try (PrintWriter writer = new PrintWriter(new FileWriter("./resources/Almacen.dat", false))) {
+                        for (Producto p1 : almacenproducto) {
+                            String comando = "Producto = " + p1.getCodigo() + "," + p1.getNombre() + "," + p1.getCantidad() + "," + p1.getPrecio();
+
+                            writer.println(comando);
+                        }
+                            System.out.println("Productos guardados en el fichero.");
+                        } catch (IOException e) {
+                            System.out.println("Error al guardar productos: " + e.getMessage());
+                        }
+                        break;
         
                     case "5":
                     System.out.println("Saliendo del programa, hasta pronto......");
