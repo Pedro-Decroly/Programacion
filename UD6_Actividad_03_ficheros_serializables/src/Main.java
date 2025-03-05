@@ -4,11 +4,10 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
-    private static final String FICHERO_TEXTO = "biblioteca.txt";
-    private ArrayList<Libro> libros;
+
 
     public static void main(String[] args) throws IOException {
-        File nombreFichero = new File("./resources/Almacen.dat");
+        File nombreFichero = new File("./resources/AlmacenLibro.dat");
         LinkedList <Libro> almacenLibros = new  LinkedList <Libro>();
         String opcion = "";
 
@@ -37,10 +36,31 @@ public class Main {
 
                     break;
                 case "3":
+                    System.out.println("Introduce el codigo");
 
+
+                    Libro ProductoEliminar = null;
+
+                    for( Libro l1 : almacenLibros){
+                        if (l1.getIsbn() == isbn){
+                            ProductoEliminar = l1;
+                        }
+                    }
+                    almacenLibros.remove(ProductoEliminar);
+                    System.out.println("El producto ah sido eliminado correctamente");
                     break;
 
                 case "4":
+                    try (PrintWriter writer = new PrintWriter(new FileWriter("./resources/AlmacenLibro.dat", false))) {
+                        for (Libro l1 : almacenLibros) {
+                            String comando = "Producto = " + l1.getAutor() + "," + l1.getIsbn() + "," + l1.getFechaPublicacion() + "," + l1.getTitulo();
+
+                            writer.println(comando);
+                        }
+                        System.out.println("Libros guardados en el fichero.");
+                    } catch (IOException e) {
+                        System.out.println("Error al guardar el libro: " + e.getMessage());
+                    }
 
                     break;
 
