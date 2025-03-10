@@ -45,8 +45,7 @@ public class Libro implements Serializable {
         this.titulo = titulo;
         this.autor = autor;
 
-            this.fechaPublicacion = LocalDate.parse(fechaPublicacion, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
+        this.fechaPublicacion = LocalDate.parse(fechaPublicacion, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
 
     }

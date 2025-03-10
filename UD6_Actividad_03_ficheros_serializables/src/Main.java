@@ -25,29 +25,29 @@ public class Main {
             switch (opcion) {
                 case 1:
                     reader = new Scanner(System.in);
-          try {
-                    System.out.println("Introduce el ISBN del libro: ");
-                    String isbn = reader.nextLine();
-                    if (comprobarIsbn(isbn, almacenLibros)) {
-                        throw new Exception("El ISBN ya existe");
+                    try {
+                        System.out.println("Introduce el ISBN del libro: ");
+                        String isbn = reader.nextLine();
+                        if (comprobarIsbn(isbn, almacenLibros)) {
+                            throw new Exception("El ISBN ya existe");
+                        }
+
+                        System.out.println("Introduce el nombre del Libro: ");
+                        String titulo = reader.nextLine();
+
+                        System.out.println("Introduce el Autor: ");
+                        String autor = reader.nextLine();
+
+                        System.out.println("Introduce el Fecha de Publicacion: ");
+                        String fechaPublicacion = reader.nextLine();
+
+                        Libro libro = new Libro(isbn, titulo, autor, fechaPublicacion);
+                        almacenLibros.add(libro);
+                    } catch (DateTimeParseException e) {
+                        System.out.println("Fecha no valida. Formato de Fecha de Publicacion dd/MM/yyyy");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
                     }
-
-                    System.out.println("Introduce el nombre del Libro: ");
-                    String titulo = reader.nextLine();
-
-                    System.out.println("Introduce el Autor: ");
-                    String autor = reader.nextLine();
-
-                    System.out.println("Introduce el Fecha de Publicacion: ");
-                    String fechaPublicacion = reader.nextLine();
-
-                    Libro libro = new Libro(isbn, titulo, autor, fechaPublicacion);
-                    almacenLibros.add(libro);
-                } catch (DateTimeParseException e) {
-                    System.out.println("Fecha no valida. Formato de Fecha de Publicacion dd/MM/yyyy");
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
 
 
                     break;
@@ -94,7 +94,7 @@ public class Main {
     public static void guardarLibro(LinkedList<Libro> almacenLibros) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("AlmacenLibro.dat", false))) {
             for (Libro l1 : almacenLibros) {
-                String comando = "Autor = " + l1.getAutor() + ", isbn=" + l1.getIsbn() + ",edicion=" + l1.getFechaPublicacion() + " titulo=" + l1.getTitulo();
+                String comando =" Titulo = " + l1.getTitulo() + ", Autor = " + l1.getAutor()  + ", Edicion = " + l1.getFechaPublicacion() + ", Isbn = " + l1.getIsbn()  ;
 
                 writer.println(comando);
             }
