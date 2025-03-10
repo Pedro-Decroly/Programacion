@@ -58,7 +58,7 @@ public class Main {
                     }
 
                     break;
-                //se pasa directamente a la opcion 4 sin dejar poner el isbn
+
                 case 3:
                     reader = new Scanner(System.in);
                     System.out.println("Introduce el ISBN del libro: ");

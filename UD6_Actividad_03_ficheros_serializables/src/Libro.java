@@ -50,7 +50,6 @@ public class Libro implements Serializable {
 
     }
 
-    @Override
     public String toString() {
         return "Libro - " +
                 "isbn='" + isbn + '\'' +
