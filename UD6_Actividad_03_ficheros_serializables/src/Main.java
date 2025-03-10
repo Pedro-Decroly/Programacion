@@ -1,7 +1,6 @@
 import java.io.*;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -94,7 +93,7 @@ public class Main {
     public static void guardarLibro(LinkedList<Libro> almacenLibros) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("AlmacenLibro.dat", false))) {
             for (Libro l1 : almacenLibros) {
-                String comando =" Titulo = " + l1.getTitulo() + ", Autor = " + l1.getAutor()  + ", Edicion = " + l1.getFechaPublicacion() + ", Isbn = " + l1.getIsbn()  ;
+                String comando = " Titulo = " + l1.getTitulo() + ", Autor = " + l1.getAutor() + ", Edicion = " + l1.getFechaPublicacion() + ", Isbn = " + l1.getIsbn();
 
                 writer.println(comando);
             }
