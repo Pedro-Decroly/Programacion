@@ -25,11 +25,9 @@ public class App {
                     case "1":
                     reader = new Scanner(System.in);
 
-                System.out.println("Introduce nombre del producto");
-                    String nombre = reader.nextLine();
+                String nombre = myUtils.leerTextoPantalla("Introduce nombre del producto");
 
-                System.out.println("Introduce cantidad");
-                    int cantidad = reader.nextInt();
+                int cantidad = myUtils.leerNumeroPantalla("Introduce cantidad");
 
                 System.out.println("Introduce el precio del producto");
                     int precio = reader.nextInt();
