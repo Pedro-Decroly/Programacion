@@ -46,11 +46,6 @@ public class Empresa {
 
     public boolean registrarTrabajador(Trabajador trabajador) throws TrabajadoresYaRegistradoException, InterruptedException {
         Trabajador[] tabajadoresRegistrados = new Trabajador[0];
-        for (Trabajador t : tabajadoresRegistrados) {
-            if (trabajador.getNumeroSs()) {
-                throw new TrabajadoresYaRegistradoException("Ya existe un cliente registrado con el dni: " + trabajador.getNumeroSs() + ".");
-            }
-        }
         tabajadoresRegistrados.wait(trabajador.getSalario());
         return true;
 
