@@ -3,88 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrera de Dados</title>
+    <title>Juego de Snake</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2228/2228426.png" />
 </head>
 <body>
     <div class="container">
         <!-- Pantalla de inicio -->
-        <div class="start-screen" id="startScreen">
-            <div class="logo">🎲</div>
-            <h1>CARRERA DE DADOS</h1>
-            
-            <div class="difficulty-selector">
-                <h3>Selecciona la dificultad:</h3>
-                <div class="difficulty-buttons">
-                    <button class="difficulty-btn active" data-difficulty="easy">Fácil</button>
-                    <button class="difficulty-btn" data-difficulty="medium">Media</button>
-                    <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
-                </div>
+        <div id="start-screen">
+            <h1>Juego de Snake</h1>
+            <div class="snake-logo">
+                <div class="snake-head"></div>
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+                <div class="snake-body"></div>
+                <div class="snake-tail"></div>
             </div>
-            
-            <div class="menu-buttons">
-                <button id="startButton">Iniciar Juego</button>
-                <button id="rulesButton">Reglas</button>
-            </div>
-        </div>
-
-        <!-- Pantalla de reglas -->
-        <div class="rules-screen hidden" id="rulesScreen">
-            <h2>Reglas del Juego</h2>
-            <div class="rules-content">
+            <div class="rules">
+                <h2>Reglas del juego:</h2>
                 <ul>
-                    <li><strong>Objetivo:</strong> Ser el primero en llegar a la meta lanzando los dados.</li>
-                    <li><strong>Turnos:</strong> Los jugadores se alternan para lanzar los dados.</li>
-                    <li><strong>Movimiento:</strong> Cada jugador avanza según el número que obtenga en su tirada.</li>
-                    <li><strong>Dificultad:</strong> 
-                        <ul>
-                            <li><strong>Fácil:</strong> El Jugador2 lanza un dado normal (1-6).</li>
-                            <li><strong>Media:</strong> El Jugador2 lanza un dado con valores ligeramente mejores (2-7).</li>
-                            <li><strong>Difícil:</strong> El Jugador2 lanza un dado con valores superiores (3-8).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Victoria:</strong> El primer jugador que llegue exactamente al final de la pista o lo sobrepase gana la partida.</li>
+                    <li><span class="icon">↑</span><span class="icon">↓</span><span class="icon">←</span><span class="icon">→</span> Usa las flechas para mover la serpiente</li>
+                    <li><span class="food-icon"></span> Come la comida para crecer y ganar puntos</li>
+                    <li><span class="wall-icon"></span> Evita chocar con los bordes</li>
+                    <li><span class="snake-icon"></span> No choques contigo mismo</li>
+                    <li><span class="score-icon">🏆</span> Obtén la mayor puntuación posible</li>
                 </ul>
             </div>
-            <button id="backButton">Volver al Menú</button>
+            <button id="start-button" class="pulse-button">¡JUGAR AHORA!</button>
         </div>
-
+        
         <!-- Pantalla de juego -->
-        <div class="game-screen hidden" id="gameScreen">
-            <h2>Carrera de Dados</h2>
-            
-            <div class="player-info">
-                <div class="player-card" id="humanPlayerCard">
-                    <div class="active-indicator hidden"></div>
-                    <h3>El Jugador1🧑​</h3>
-                    <p>Posición: <span id="humanPosition">0</span></p>
-                </div>
-                <div class="player-card" id="cpuPlayerCard">
-                    <div class="active-indicator hidden"></div>
-                    <h3>El Jugador2👱</h3>
-                    <p>Posición: <span id="cpuPosition">0</span></p>
+        <div id="game-screen">
+            <div class="game-header">
+                <h1>Snake</h1>
+                <div class="score-container">
+                    <div class="score">Puntuación: <span id="score">0</span></div>
+                    <div class="high-score">Mejor puntuación: <span id="high-score">0</span></div>
                 </div>
             </div>
-            
-            <div class="board">
-                <div class="track" id="raceTrack">
-                    <div class="player player-human" id="humanPlayer">🧑​</div>
-                    <div class="player player-cpu" id="cpuPlayer">👱​</div>
-                    <div class="finish-line"></div>
-                </div>
-            </div>
-            
-            <div class="dice-container">
-                <div class="dice" id="dice">?</div>
-            </div>
-            
-            <div class="game-message" id="gameMessage">¡Lanza el dado para comenzar!</div>
-            
+            <canvas id="game-canvas" width="400" height="400"></canvas>
             <div class="controls">
-                <button class="roll-btn" id="rollButton">Lanzar Dado</button>
-                <button id="returnToMenuButton">Volver al Menú</button>
+                <button id="restart-button">Reiniciar</button>
+                <button id="back-button">Menú principal</button>
             </div>
+        </div>
+        
+        <!-- Pantalla de Game Over -->
+        <div id="game-over-screen">
+            <h1>¡Game Over!</h1>
+            <div class="final-score">Tu puntuación: <span id="final-score">0</span></div>
+            <div class="game-over-message" id="game-over-message">¡Buen intento!</div>
+            <button id="play-again-button">Jugar de nuevo</button>
+            <button id="menu-button">Volver al menú</button>
         </div>
     </div>
 

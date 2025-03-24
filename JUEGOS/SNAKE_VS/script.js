@@ -1,220 +1,230 @@
-// Configuración del juego
-const gameConfig = {
-    trackLength: 100,
-    difficulty: 'easy',
-    difficulties: {
-        easy: { min: 1, max: 6 },
-        medium: { min: 2, max: 7 },
-        hard: { min: 3, max: 8 }
-    },
-    currentPlayer: 'human', // 'human' o 'cpu'
-    gameOver: false
-};
+// Variables globales
+let canvas, ctx;
+let snake = [];
+let food = {};
+let direction = 'right';
+let nextDirection = 'right';
+let score = 0;
+let gameInterval;
+let gameSpeed = 100; // Velocidad del juego en ms
+let gridSize = 20; // Tamaño de cada celda
+let gameOver = false;
 
-// Estado del juego
-const gameState = {
-    humanPosition: 0,
-    cpuPosition: 0
-};
+// Elementos del DOM
+const startScreen = document.getElementById('start-screen');
+const gameScreen = document.getElementById('game-screen');
+const startButton = document.getElementById('start-button');
+const restartButton = document.getElementById('restart-button');
+const scoreElement = document.getElementById('score');
 
-// Referencias a elementos del DOM
-const startScreen = document.getElementById('startScreen');
-const rulesScreen = document.getElementById('rulesScreen');
-const gameScreen = document.getElementById('gameScreen');
-const startButton = document.getElementById('startButton');
-const rulesButton = document.getElementById('rulesButton');
-const backButton = document.getElementById('backButton');
-const returnToMenuButton = document.getElementById('returnToMenuButton');
-const rollButton = document.getElementById('rollButton');
-const difficultyButtons = document.querySelectorAll('.difficulty-btn');
-
-const humanPlayer = document.getElementById('humanPlayer');
-const cpuPlayer = document.getElementById('cpuPlayer');
-const humanPlayerCard = document.getElementById('humanPlayerCard');
-const cpuPlayerCard = document.getElementById('cpuPlayerCard');
-const humanPositionElement = document.getElementById('humanPosition');
-const cpuPositionElement = document.getElementById('cpuPosition');
-const diceElement = document.getElementById('dice');
-const gameMessage = document.getElementById('gameMessage');
-const raceTrack = document.getElementById('raceTrack');
-
-// Event Listeners
+// Inicialización
 startButton.addEventListener('click', startGame);
-rulesButton.addEventListener('click', showRules);
-backButton.addEventListener('click', showStartScreen);
-returnToMenuButton.addEventListener('click', showStartScreen);
-rollButton.addEventListener('click', playerRoll);
+restartButton.addEventListener('click', restartGame);
+document.addEventListener('keydown', changeDirection);
 
-// Configuración de dificultad
-difficultyButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        difficultyButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        gameConfig.difficulty = button.getAttribute('data-difficulty');
-    });
-});
-
-// Funciones del juego
-function showStartScreen() {
-    startScreen.classList.remove('hidden');
-    rulesScreen.classList.add('hidden');
-    gameScreen.classList.add('hidden');
-    resetGame();
-}
-
-function showRules() {
-    startScreen.classList.add('hidden');
-    rulesScreen.classList.remove('hidden');
-    gameScreen.classList.add('hidden');
-}
-
+// Función para iniciar el juego
 function startGame() {
-    startScreen.classList.add('hidden');
-    rulesScreen.classList.add('hidden');
-    gameScreen.classList.remove('hidden');
-    resetGame();
-    updateGameUI();
+    startScreen.style.display = 'none';
+    gameScreen.style.display = 'block';
+    
+    canvas = document.getElementById('game-canvas');
+    ctx = canvas.getContext('2d');
+    
+    initGame();
+    gameInterval = setInterval(gameLoop, gameSpeed);
 }
 
-function resetGame() {
-    gameState.humanPosition = 0;
-    gameState.cpuPosition = 0;
-    gameConfig.currentPlayer = 'human';
-    gameConfig.gameOver = false;
-    
-    // Restablecer UI
-    updatePlayerPositions();
-    gameMessage.textContent = '¡Lanza el dado para comenzar!';
-    gameMessage.classList.remove('winner-message');
-    rollButton.disabled = false;
-    
-    // Actualizar tarjetas de jugadores
-    updatePlayerTurn();
-}
-
-function updateGameUI() {
-    // Actualizar las posiciones visualmente
-    updatePlayerPositions();
-    
-    // Actualizar elementos de texto
-    humanPositionElement.textContent = gameState.humanPosition;
-    cpuPositionElement.textContent = gameState.cpuPosition;
-    
-    // Actualizar indicador de turno
-    updatePlayerTurn();
-}
-
-function updatePlayerTurn() {
-    const humanIndicator = humanPlayerCard.querySelector('.active-indicator');
-    const cpuIndicator = cpuPlayerCard.querySelector('.active-indicator');
-    
-    if (gameConfig.currentPlayer === 'human') {
-        humanPlayerCard.classList.add('active');
-        cpuPlayerCard.classList.remove('active');
-        humanIndicator.classList.remove('hidden');
-        cpuIndicator.classList.add('hidden');
-    } else {
-        humanPlayerCard.classList.remove('active');
-        cpuPlayerCard.classList.add('active');
-        humanIndicator.classList.add('hidden');
-        cpuIndicator.classList.remove('hidden');
-    }
-}
-
-function updatePlayerPositions() {
-    const trackWidth = raceTrack.clientWidth - 60; // Restamos el tamaño del jugador
-    
-    // Calculamos la posición en píxeles basada en la proporción
-    const humanPixelPosition = (gameState.humanPosition / gameConfig.trackLength) * trackWidth;
-    const cpuPixelPosition = (gameState.cpuPosition / gameConfig.trackLength) * trackWidth;
-    
-    // Actualizamos las posiciones CSS
-    humanPlayer.style.left = `${humanPixelPosition}px`;
-    cpuPlayer.style.left = `${cpuPixelPosition}px`;
-}
-
-function rollDice(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function animateDice() {
-    diceElement.classList.add('shake');
-    setTimeout(() => {
-        diceElement.classList.remove('shake');
-    }, 500);
-}
-
-function playerRoll() {
-    if (gameConfig.gameOver) return;
-    
-    const diceValue = rollDice(1, 6);
-    animateDice();
-    
-    // Mostrar el valor del dado después de la animación
-    setTimeout(() => {
-        diceElement.textContent = diceValue;
-        gameState.humanPosition += diceValue;
-        humanPositionElement.textContent = gameState.humanPosition;
-        gameMessage.textContent = `Has sacado un ${diceValue} y avanzas a la posición ${gameState.humanPosition}.`;
-        
-        updateGameUI();
-        
-        // Comprobar si el jugador ha ganado
-        if (gameState.humanPosition >= gameConfig.trackLength) {
-            endGame('human');
-            return;
-        }
-        
-        // Cambiar al turno de la CPU
-        gameConfig.currentPlayer = 'cpu';
-        updatePlayerTurn();
-        rollButton.disabled = true;
-        
-        // La CPU juega después de un breve retraso
-        setTimeout(cpuRoll, 1500);
-    }, 500);
-}
-
-function cpuRoll() {
-    if (gameConfig.gameOver) return;
-    
-    const diffSettings = gameConfig.difficulties[gameConfig.difficulty];
-    const diceValue = rollDice(diffSettings.min, diffSettings.max);
-    animateDice();
-    
-    // Mostrar el valor del dado después de la animación
-    setTimeout(() => {
-        diceElement.textContent = diceValue;
-        gameState.cpuPosition += diceValue;
-        cpuPositionElement.textContent = gameState.cpuPosition;
-        gameMessage.textContent = `El Jugador2 ha sacado un ${diceValue} y avanza a la posición ${gameState.cpuPosition}.`;
-        
-        updateGameUI();
-        
-        // Comprobar si la CPU ha ganado
-        if (gameState.cpuPosition >= gameConfig.trackLength) {
-            endGame('cpu');
-            return;
-        }
-        
-        // Cambiar al turno del jugador
-        gameConfig.currentPlayer = 'El Jugador2';
-        updatePlayerTurn();
-        rollButton.disabled = false;
-    }, 500);
-}
-
-function endGame(winner) {
-    gameConfig.gameOver = true;
-    rollButton.disabled = true;
-    gameMessage.classList.add('winner-message');
-    
-    if (winner === 'El Jugador1') {
-        gameMessage.textContent = '¡Felicidades! Has ganado la carrera.';
-    } else {
-        gameMessage.textContent = 'El Jugador2 ha ganado la carrera. ¡Inténtalo de nuevo!';
-    }
+// Función para reiniciar el juego
+function restartGame() {
+    clearInterval(gameInterval);
+    initGame();
+    gameInterval = setInterval(gameLoop, gameSpeed);
 }
 
 // Inicialización del juego
-showStartScreen();
+function initGame() {
+    // Reiniciar variables
+    snake = [
+        {x: 5*gridSize, y: 10*gridSize},
+        {x: 4*gridSize, y: 10*gridSize},
+        {x: 3*gridSize, y: 10*gridSize}
+    ];
+    
+    direction = 'right';
+    nextDirection = 'right';
+    score = 0;
+    gameOver = false;
+    scoreElement.textContent = score;
+    
+    // Crear comida
+    createFood();
+}
+
+// Ciclo principal del juego
+function gameLoop() {
+    if (gameOver) return;
+    
+    // Limpiar canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Actualizar dirección
+    direction = nextDirection;
+    
+    // Mover serpiente
+    moveSnake();
+    
+    // Verificar colisiones
+    if (checkCollision()) {
+        gameOver = true;
+        clearInterval(gameInterval);
+        alert(`¡Juego terminado! Tu puntuación: ${score}`);
+        return;
+    }
+    
+    // Verificar si come
+    if (snake[0].x === food.x && snake[0].y === food.y) {
+        // Aumentar puntuación
+        score += 10;
+        scoreElement.textContent = score;
+        
+        // Crear nueva comida
+        createFood();
+        
+        // No eliminar la cola para que crezca
+    } else {
+        // Eliminar último segmento si no come
+        snake.pop();
+    }
+    
+    // Dibujar elementos
+    drawFood();
+    drawSnake();
+}
+
+// Mover la serpiente
+function moveSnake() {
+    let newHead = {x: snake[0].x, y: snake[0].y};
+    
+    // Calcular nueva posición de la cabeza
+    switch (direction) {
+        case 'up':
+            newHead.y -= gridSize;
+            break;
+        case 'down':
+            newHead.y += gridSize;
+            break;
+        case 'left':
+            newHead.x -= gridSize;
+            break;
+        case 'right':
+            newHead.x += gridSize;
+            break;
+    }
+    
+    // Añadir nueva cabeza al inicio del array
+    snake.unshift(newHead);
+}
+
+// Verificar colisiones
+function checkCollision() {
+    const head = snake[0];
+    
+    // Colisión con paredes
+    if (
+        head.x < 0 || 
+        head.x >= canvas.width || 
+        head.y < 0 || 
+        head.y >= canvas.height
+    ) {
+        return true;
+    }
+    
+    // Colisión consigo mismo
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Crear comida
+function createFood() {
+    // Posición aleatoria para la comida
+    const maxX = (canvas.width / gridSize) - 1;
+    const maxY = (canvas.height / gridSize) - 1;
+    
+    let foodX, foodY;
+    let foodOnSnake;
+    
+    // Asegurarse de que la comida no aparezca en la serpiente
+    do {
+        foodOnSnake = false;
+        foodX = Math.floor(Math.random() * maxX) * gridSize;
+        foodY = Math.floor(Math.random() * maxY) * gridSize;
+        
+        for (let segment of snake) {
+            if (segment.x === foodX && segment.y === foodY) {
+                foodOnSnake = true;
+                break;
+            }
+        }
+    } while (foodOnSnake);
+    
+    food = {x: foodX, y: foodY};
+}
+
+// Dibujar la serpiente
+function drawSnake() {
+    ctx.fillStyle = '#4CAF50';
+    
+    for (let segment of snake) {
+        ctx.fillRect(segment.x, segment.y, gridSize, gridSize);
+        
+        // Borde para cada segmento
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(segment.x, segment.y, gridSize, gridSize);
+    }
+    
+    // Dibujar ojos en la cabeza
+    const head = snake[0];
+    ctx.fillStyle = 'white';
+    
+    // Posición de los ojos depende de la dirección
+    if (direction === 'left' || direction === 'right') {
+        // Ojos horizontales
+        ctx.fillRect(head.x + 5, head.y + 5, 2, 2);
+        ctx.fillRect(head.x + 5, head.y + 13, 2, 2);
+    } else {
+        // Ojos verticales
+        ctx.fillRect(head.x + 5, head.y + 5, 2, 2);
+        ctx.fillRect(head.x + 13, head.y + 5, 2, 2);
+    }
+}
+
+// Dibujar la comida
+function drawFood() {
+    ctx.fillStyle = 'red';
+    ctx.fillRect(food.x, food.y, gridSize, gridSize);
+    
+    // Borde para la comida
+    ctx.strokeStyle = 'darkred';
+    ctx.strokeRect(food.x, food.y, gridSize, gridSize);
+}
+
+// Cambiar dirección con teclado
+function changeDirection(event) {
+    const key = event.key;
+    
+    // Evitar que la serpiente se mueva en dirección opuesta
+    if (key === 'ArrowUp' && direction !== 'down') {
+        nextDirection = 'up';
+    } else if (key === 'ArrowDown' && direction !== 'up') {
+        nextDirection = 'down';
+    } else if (key === 'ArrowLeft' && direction !== 'right') {
+        nextDirection = 'left';
+    } else if (key === 'ArrowRight' && direction !== 'left') {
+        nextDirection = 'right';
+    }
+}
