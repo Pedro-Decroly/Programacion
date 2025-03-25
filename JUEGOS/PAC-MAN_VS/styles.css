@@ -18,7 +18,7 @@
 }
 
 .wall {
-    background-color: blue;
+    background-color: #464659;
 }
 
 .power-pellet {
@@ -27,7 +27,7 @@
 }
 
 .blinky {
-    background-color: red;
+    background-color: red; 
 }
 
 .pinky {
