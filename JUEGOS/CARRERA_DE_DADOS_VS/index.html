@@ -5,89 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrera de Dados</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2228/2228426.png" />
 </head>
 <body>
-    <div class="container">
-        <!-- Pantalla de inicio -->
-        <div class="start-screen" id="startScreen">
-            <div class="logo">🎲</div>
-            <h1>CARRERA DE DADOS</h1>
-            
-            <div class="difficulty-selector">
-                <h3>Selecciona la dificultad:</h3>
-                <div class="difficulty-buttons">
-                    <button class="difficulty-btn active" data-difficulty="easy">Fácil</button>
-                    <button class="difficulty-btn" data-difficulty="medium">Media</button>
-                    <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
-                </div>
-            </div>
-            
-            <div class="menu-buttons">
-                <button id="startButton">Iniciar Juego</button>
-                <button id="rulesButton">Reglas</button>
-            </div>
-        </div>
-
-        <!-- Pantalla de reglas -->
-        <div class="rules-screen hidden" id="rulesScreen">
-            <h2>Reglas del Juego</h2>
-            <div class="rules-content">
-                <ul>
-                    <li><strong>Objetivo:</strong> Ser el primero en llegar a la meta lanzando los dados.</li>
-                    <li><strong>Turnos:</strong> Los jugadores se alternan para lanzar los dados.</li>
-                    <li><strong>Movimiento:</strong> Cada jugador avanza según el número que obtenga en su tirada.</li>
-                    <li><strong>Dificultad:</strong> 
-                        <ul>
-                            <li><strong>Fácil:</strong> El Jugador2 lanza un dado normal (1-6).</li>
-                            <li><strong>Media:</strong> El Jugador2 lanza un dado con valores ligeramente mejores (2-7).</li>
-                            <li><strong>Difícil:</strong> El Jugador2 lanza un dado con valores superiores (3-8).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Victoria:</strong> El primer jugador que llegue exactamente al final de la pista o lo sobrepase gana la partida.</li>
-                </ul>
-            </div>
-            <button id="backButton">Volver al Menú</button>
-        </div>
-
-        <!-- Pantalla de juego -->
-        <div class="game-screen hidden" id="gameScreen">
-            <h2>Carrera de Dados</h2>
-            
-            <div class="player-info">
-                <div class="player-card" id="humanPlayerCard">
-                    <div class="active-indicator hidden"></div>
-                    <h3>El Jugador1🧑​</h3>
-                    <p>Posición: <span id="humanPosition">0</span></p>
-                </div>
-                <div class="player-card" id="cpuPlayerCard">
-                    <div class="active-indicator hidden"></div>
-                    <h3>El Jugador2👱</h3>
-                    <p>Posición: <span id="cpuPosition">0</span></p>
-                </div>
-            </div>
-            
-            <div class="board">
-                <div class="track" id="raceTrack">
-                    <div class="player player-human" id="humanPlayer">🧑​</div>
-                    <div class="player player-cpu" id="cpuPlayer">👱​</div>
-                    <div class="finish-line"></div>
-                </div>
-            </div>
-            
-            <div class="dice-container">
-                <div class="dice" id="dice">?</div>
-            </div>
-            
-            <div class="game-message" id="gameMessage">¡Lanza el dado para comenzar!</div>
-            
-            <div class="controls">
-                <button class="roll-btn" id="rollButton">Lanzar Dado</button>
-                <button id="returnToMenuButton">Volver al Menú</button>
-            </div>
-        </div>
+<!-- Pantalla de inicio -->
+<div id="mainScreen" class="screen active">
+    <h1>Carrera de Dados</h1>
+    <button onclick="startGame()" class="btn">Inicio</button>
+    <button onclick="openRules()" class="btn">Reglas</button>
+    <h3>Selecciona Dificultad:</h3>
+    <div class="difficulty-buttons">
+        <button class="btn" onclick="setDifficulty('easy')">Fácil</button>
+        <button class="btn" onclick="setDifficulty('normal')">Normal</button>
+        <button class="btn" onclick="setDifficulty('hard')">Difícil</button>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<!-- Pantalla del juego -->
+<div id="gameScreen" class="screen">
+    <h1>Juego en Progreso</h1>
+    <div class="scoreboard">
+        <p>Jugador: <span id="playerScore">0</span></p>
+        <p>Jugador 2: <span id="cpuScore">0</span></p>
+    </div>
+    <div id="history">
+        <p>Historial Jugador: <span id="playerHistory"></span></p>
+        <p>Historial Jugador 2: <span id="cpuHistory"></span></p>
+    </div>
+    <div id="dice">🎲</div>
+    <button class="roll-btn" onclick="rollDice()">Lanzar Dado</button>
+    <button class="home-btn" onclick="goHome()">🏠</button>
+</div>
+
+<!-- Ventana de reglas -->
+<div id="rulesModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeRules()">&times;</span>
+        <h2>Reglas del Juego</h2>
+        <p>Gana el jugador que primero llegue a 20 puntos.</p>
+        <p>Cada jugador lanza un dado y suma su resultado a su puntuación.</p>
+        <p>Jugador 2 juega automáticamente después del jugador.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
