@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('fondo.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+    gap: 5px;
+    margin: 20px auto;
+}
+
+.casilla {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.jugador {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+}
+
+#jugador1 { background: red; }
+#jugador2 { background: blue; }
+
+.botonera button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#dificultad-facil { background: green; }
+#dificultad-media { background: orange; }
+#dificultad-dificil { background: red; }
+
+.dado {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 2px solid black;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.oculto {
+    display: none;
+}
+
+.mensaje {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Carrera de Dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Juego de Carrera de Dados</h1>
+        <div id="tablero" class="tablero"></div>
+        <div class="botonera">
+            <button id="dificultad-facil" class="dificultad">Fácil</button>
+            <button id="dificultad-media" class="dificultad">Media</button>
+            <button id="dificultad-dificil" class="dificultad">Difícil</button>
+        </div>
+        <div class="jugadores">
+            <div id="jugador1" class="jugador">Jugador 1</div>
+            <div id="jugador2" class="jugador">Jugador 2</div>
+        </div>
+        <div class="dados-container">
+            <div id="dado" class="dado oculto"></div>
+            <button id="lanzar">Lanzar dado</button>
+        </div>
+        <button id="reglas">Ver reglas</button>
+        <div id="ventana-reglas" class="modal oculto">
+            <div class="modal-contenido">
+                <span id="cerrar-reglas">&times;</span>
+                <h2>Reglas del Juego</h2>
+                <p>Cada jugador lanza el dado en su turno y avanza el número de casillas obtenido. Gana el primer jugador en llegar a la última casilla.</p>
+            </div>
+        </div>
+        <div id="mensaje-final" class="mensaje oculto"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
