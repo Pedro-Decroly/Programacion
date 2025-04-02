@@ -26,7 +26,7 @@ public class SQLAccessMercaDaw {
                 int IVA = dataSet.getInt(9);
                 boolean AplicarDto = dataSet.getBoolean(10);
 
-                Inventario p1 = new Inventario(Id,Referencia,Nombre,Descripcion,Tipo, Cantidad,Precio,Descuento,IVA,AplicarDto);
+                Inventario p1 = new Inventario();
                 productos.add(p1);
 
             }
