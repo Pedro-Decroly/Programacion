@@ -1,73 +1,142 @@
 package org.example;
-import java.io.*;
-import java.time.format.DateTimeParseException;
-import java.util.LinkedList;
-import java.util.Objects;
+
+import java.util.List;
 import java.util.Scanner;
 
+
 public class Inventario {
+        public static void main(String[] args) {
 
+                Scanner scanner = new Scanner(System.in);
+                String opcion;
 
-
-
-        public static void main(String[] args) throws IOException {
-                File nombreFichero = new File("MercaDaw.dat");
-                int opcion = 0;
-
+                System.out.println("¡¡Bienvenido a MercaDaw!!");
+                SQLAccessMercaDaw misDatos = new SQLAccessMercaDaw();
 
                 do {
-                        Scanner reader = new Scanner(System.in);
-                        System.out.println("Bienvenido a MercaDaw!!");
-                        System.out.println("1 - Mostrar todos los Productos en el Inventario");
-                        System.out.println("2 - Buscar producto por referencia.\r");
-                        System.out.println("3 - Buscar productos por tipo.");
-                        System.out.println("4 - Buscar producto por cantidad..");
-                        System.out.println("5 - Insertar un nuevo producto (no permitir referencias repetidas)");
-                        System.out.println("6 - Eliminar Producto por referencia..");
-                        System.out.println("7 - Actualizar producto (descripción, cantidad, precio, descuento, AplicarDto)");
-                        System.out.println("8 - BusInsertar un nuevo tipo de producto.\n.");
-                        System.out.println("9 - Guardar y Salir");
-                        opcion = reader.nextInt();
-                        switch (opcion) {
-                                case 1:
 
-                                        break;
-                                case 2:
+                        scanner = new Scanner(System.in);
+                        System.out.println("\nMenú");
+                        System.out.println("1. Mostrar todos los Productos en el Inventario.");
+                        System.out.println("2. Buscar producto por referencia.");
+                        System.out.println("3. Buscar productos por tipo.");
+                        System.out.println("4. Buscar producto por cantidad.");
+                        System.out.println("5. Insertar un nuevo producto (no permitir referencias repetidas).");
+                        System.out.println("6. Eliminar Producto por referencia.");
+                        System.out.println("7. Actualizar producto.");
+                        System.out.println("8. Insertar un nuevo tipo de producto.");
+                        System.out.println("9. Salir");
 
-                                        break;
+                        scanner = new Scanner(System.in);
+                        opcion = scanner.nextLine();
+                        scanner.nextLine();
 
-                                case 3:
+                        if (opcion.equals("1")) {
 
-                                        break;
-                                case 4:
+                                List<Producto> characters = misDatos.getProductos();
 
-                                        break;
+                                for(Producto c : characters){
+                                        System.out.println(c);
+                                }
 
-                                case 5:
+                        } else if (opcion.equals("2")) {
+
+                                System.out.println("\nInserta una referencia \n Ejemplo: 'PRD001'");
+                                String ref = scanner.nextLine();
+
+                                List<Producto> referencia = misDatos.getByRef(ref);
+
+                                for(Producto r : referencia){
+                                        System.out.println(r);
+                                }
 
 
-                                        break;
-                                case 6:
+                        } else if (opcion.equals("3")) {
 
-                                        break;
+                                System.out.println("\nInserta el id de tipo \n Ejemplo: '1'");
+                                String tip = scanner.nextLine();
 
-                                case 7:
-                                        break;
+                                List<Producto> tipos = misDatos.getByTipo(tip);
 
-                                case 8:
+                                for(Producto t : tipos){
+                                        System.out.println(t);
+                                }
 
-                                        break;
 
-                                case 9:
+                        } else if (opcion.equals("4")) {
 
-                                        break;
-                                default:
-                                        System.out.println("Seleccione una opcion valida porfavor");
-                                        break;
+                                System.out.println("\nInserta la cantidad del producto que quieras buscar");
+                                int cant = scanner.nextInt();
+
+                                List<Producto> tipos = misDatos.getProductoByCantidad(cant);
+
+                                for(Producto t : tipos){
+                                        System.out.println(t);
+                                }
+
+                        } else if (opcion.equals("5")) {
+
+                                scanner = new Scanner(System.in);
+                                System.out.println("Inserta la referencia del nuevo producto");
+                                String referencia = scanner.nextLine();
+                                System.out.println("Inserta el nombre del nuevo producto");
+                                String nombre= scanner.nextLine();
+                                System.out.println("Inserta la descripcion del nuevo producto");
+                                String descripcion = scanner.nextLine();
+                                System.out.println("Inserta el id del tipo del nuevo producto");
+                                int tipo = scanner.nextInt();
+                                System.out.println("Inserta la cantidad del nuevo producto");
+                                int cantidad = scanner.nextInt();
+                                System.out.println("Inserta el precio del nuevo producto");
+                                double precio = scanner.nextDouble();
+                                System.out.println("Inserta el descuento del nuevo producto");
+                                int descuento = scanner.nextInt();
+                                System.out.println("Inserta el iva del nuevo producto");
+                                int iva = scanner.nextInt();
+                                boolean aplicarDto = false;
+
+                                scanner = new Scanner(System.in);
+                                System.out.println("aplicar descuento? s/n poner una letra que no sea ni 's' ni 'n' se dara por hecho que es que no");
+                                scanner = new Scanner(System.in);
+                                String apDescuento = scanner.nextLine();
+                                if (apDescuento.equalsIgnoreCase("s")){
+                                        aplicarDto = true;
+                                }else if (apDescuento.equalsIgnoreCase("n")){
+                                        aplicarDto = false;
+                                }else {
+                                        System.out.println("pon una opcion correcta, se dara por hecho que que es que no");
+                                }
+
+                                Producto nuevoProducto = new Producto(referencia, nombre, descripcion, tipo, cantidad, precio, descuento, iva, aplicarDto);
+
+
+                                int insertar = misDatos.getInsertarProducto(nuevoProducto);
+                                System.out.println("Se han insertado " + insertar + " elementos");
+
+
+                        } else if (opcion.equals("6")) {
+
+                                System.out.println("\nInserta una referencia \n Ejemplo: PRD001");
+                                String refre = scanner.nextLine();
+                                misDatos.deleteByReference(refre);
+
+                        } else if (opcion.equals("7")) {
+
+
+
+                        } else if (opcion.equals("8")) {
+
+
+
+                        } else if (opcion.equals("9")) {
+
+                        } else {
+
+                                System.out.println("Pon una opcion correcta en el menu!!");
 
                         }
+                } while (!opcion.equals("9"));
 
 
-                } while (opcion != 9);
         }
 }

@@ -5,112 +5,140 @@ import java.io.Serializable;
 public class Producto implements Serializable {
 
 
-    private static final long serialVersionUID = 7725742635403537803L;
+
     private int id;
     private String referencia;
     private String nombre;
     private String descripcion;
-    private int idTipo;
+    private int tipo;
     private int cantidad;
     private double precio;
     private int descuento;
     private int iva;
-    private boolean aplicarDescuento;
+    private boolean aplicarDto;
+
+    public Producto(String referencia, String nombre, String descripcion, int tipo, int cantidad, double precio, int descuento, int iva, boolean aplicarDto) {
+    }
 
 
-    public Producto(int id, String referencia, String nombre, String descripcion, int idTipo, int cantidad,
-                    double precio, int descuento, int iva) {
+    public void Productos(String referencia, String nombre, String descripcion, int tipo, int cantidad, double precio,
+                          int descuento, int iva, boolean aplicarDto) {
+        this.referencia = referencia;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.descuento = descuento;
+        this.iva = iva;
+        this.aplicarDto = aplicarDto;
+    }
+
+
+
+
+    public void Productos(int id, String referencia, String nombre, String descripcion, int tipo, int cantidad,
+                          double precio, int descuento, int iva, boolean aplicarDto) {
         this.id = id;
         this.referencia = referencia;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.idTipo = idTipo;
+        this.tipo = tipo;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descuento = descuento;
         this.iva = iva;
+        this.aplicarDto = aplicarDto;
     }
 
 
-    //Defino los setters que creo que podrían llegar a ser necesarios
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public void setDescuento(int descuento) {
-        this.descuento = descuento;
-    }
-
-    public void setIva(int iva) {
-        this.iva = iva;
-    }
-
-    public void setAplicarDescuento(boolean aplicarDescuento) {
-        this.aplicarDescuento = aplicarDescuento;
-    }
-
-    //Defino los getters que se podrían necesitar, en este caso  podrían ser necesarios todos
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getReferencia() {
         return referencia;
     }
 
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
     public String getNombre() {
         return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public int getIdTipo() {
-        return idTipo;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public int getCantidad() {
         return cantidad;
     }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public double getPrecio() {
         return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public int getDescuento() {
         return descuento;
     }
 
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+
     public int getIva() {
         return iva;
     }
 
-    public boolean isAplicarDescuento() {
-        return aplicarDescuento;
+    public void setIva(int iva) {
+        this.iva = iva;
     }
 
+    public boolean isAplicarDto() {
+        return aplicarDto;
+    }
 
-    //Definimos el método toString
-
+    public void setAplicarDto(boolean aplicarDto) {
+        this.aplicarDto = aplicarDto;
+    }
 
     @Override
     public String toString() {
-        return "Producto:" +
-                "ID: " + id + "\n" + ", REFERENCIA: " + referencia + "\n" +
-                ", NOMBRE: " + nombre + ", REFERENCIA:: " + descripcion + "\n" +
-                ", TIPO: " + idTipo + ", CANTIDAD: " + cantidad + "\n" +
-                ", PRECIO: " + precio +", DESCUENTO: " + descuento + "\n" +
-                ", IVA: " + iva + ", DTO APLICABLE?:" + aplicarDescuento ;
+        return "TablaProductos [id=" + id + ", referencia=" + referencia + ", nombre=" + nombre + ", descripcion="
+                + descripcion + ", tipo=" + tipo + ", cantidad=" + cantidad + ", precio=" + precio + ", descuento="
+                + descuento + ", iva=" + iva + ", aplicarDto=" + aplicarDto + "]";
     }
+
 }
