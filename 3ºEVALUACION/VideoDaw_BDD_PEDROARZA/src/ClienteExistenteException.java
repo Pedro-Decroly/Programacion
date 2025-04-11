@@ -1,0 +1,2 @@
+public class ClienteExistenteException {
+}
