@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="799.0" style="-fx-background-color: green; -fx-border-image-insets: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.decroly.Examen_Daw1.HelloController">
+   <children>
+      <Label layoutX="292.0" layoutY="14.0" lineSpacing="1.0" prefHeight="98.0" prefWidth="204.0" text="VetDaw" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="55.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="187.0" layoutY="449.0" prefHeight="203.0" prefWidth="425.0">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.0" minWidth="10.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="74.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="0.0" prefWidth="106.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="112.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="MascotaButton" mnemonicParsing="false" onMouseClicked="#handleAdd" style="-fx-background-color: red;" text="Mascota" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="PropietarioButton" mnemonicParsing="false" onMouseClicked="#handleEdit" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: yellow;" text="Propietario" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+             <Button fx:id="BuscarMascotaButton" mnemonicParsing="false" onMouseClicked="#handleAdd" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: red;" text="Buscar Mascota" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+             <Button fx:id="DatosButton" mnemonicParsing="false" onMouseClicked="#handleEdit" style="-fx-background-color: yellow;" text="Datos" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="consultaButton" mnemonicParsing="false" onMouseClicked="#handleImport" style="-fx-background-color: red;" text="Consulta" textFill="#f8f8f8" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <ImageView fitHeight="255.0" fitWidth="463.0" layoutX="168.0" layoutY="154.0">
+         <image>
+            <Image url="@../../../../../../../Recursos_examen_3EVA/mascotas_1.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="salir" layoutX="729.0" layoutY="720.0" mnemonicParsing="false" onMouseClicked="#handleRemove" style="-fx-background-color: purple;" text="SALIR" textFill="WHITE" />
+   </children>
+</AnchorPane>

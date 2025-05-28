@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="HelloApplication" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.decroly.Examen_Daw1.HelloApplication" />
+    <module name="Examen_DAW1_3Evaluaciion_PedroArza" />
+    <option name="PROGRAM_PARAMETERS" value="$USER_HOME$/.m2/repository$MODULE_DIR$" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Vet-Daw-Exam_PedroArza" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
